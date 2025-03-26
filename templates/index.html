@@ -1,0 +1,2277 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+    <head>
+        <title>Goru</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width">
+
+        <!-- Include All CSS -->
+        <link rel="stylesheet" href="{% static 'assets/css/bootstrap.min.css' %}"/>
+        <link rel="stylesheet" href="{% static 'assets/css/themewar-icons.css' %}"/>
+        <link rel="stylesheet" href="{% static 'assets/css/flaticon.css' %}"/>
+        <link rel="stylesheet" href="{% static 'assets/css/animate.css' %}"/>
+        <link rel="stylesheet" href="{% static 'assets/css/owl.carousel.min.css' %}">
+        <link rel="stylesheet" href="{% static 'assets/css/owl.theme.default.min.css' %}">
+        <link rel="stylesheet" href="{% static 'assets/css/settings.css' %}">
+        <link rel="stylesheet" href="{% static 'assets/css/lightcase.css' %}">
+        <link rel="stylesheet" href="{% static 'assets/css/preset.css' %}"/>
+        <link rel="stylesheet" href="{% static 'assets/css/ignore_in_wp.css' %}"/>
+        <link rel="stylesheet" href="{% static 'assets/css/theme.css' %}"/>
+        <link rel="stylesheet" href="{% static 'assets/css/responsive.css' %}"/>
+        <!-- End Include All CSS -->
+
+        <!-- Favicon Icon -->
+        <link rel="icon"  type="image/png" href="{% static 'assets/images/favicon.png' %}">
+        <!-- Favicon Icon -->
+    </head>
+    <body>
+        <!-- Preloader Start -->
+        <div class="preloader" id="preloader">
+            <div class="la-ball-scale-multiple la-2x">
+                <div></div>
+                <div></div>
+                <div></div>
+            </div>
+        </div>
+        <!-- Preloader End -->
+
+        <!-- Header Start -->
+        <header class="header-01 fix-header">
+            <div class="container-fluid">
+                <div class="row">
+                    <div class="col-lg-2 col-md-2">
+                        <div class="logo">
+                            <a href="index.html">
+                                <img src="{% static 'assets/images/logo.png' %}" alt="Goru"/>
+                            </a>
+                        </div>
+                    </div>
+                    <div class="col-lg-6 col-md-6">
+                        <nav class="mainmenu mobile-menu">
+                            <div class="mobile-btn">
+                                <a href="javascript: void(0);"><i class="twi-bars"></i></a>
+                            </div>
+                            <ul>
+                                <li class="active menu-item-has-children">
+                                    <a href="{% url 'home' %}">Home</a>
+                                </li>
+                                <li class="menu-item-has-children">
+                                    <a href="{% url 'shop' %}">Shop</a>
+                                </li>
+                                <li class="menu-item-has-children">
+                                    <a href="{% url 'about' %}">About</a>
+                                </li>
+                                <li>
+                                    <a href="{% url 'contact' %}">Contact</a>
+                                </li>
+                            </ul>
+                        </nav>
+                    </div>
+                    <div class="col-lg-4 col-md-4">
+                        <div class="header-cogs">
+                            <a class="search search-toggles" href="javascript:void(0);"><i class="twi-search"></i></a>
+                            <a class="" href="{% url 'wishlist' %}"><i class="twi-heart1"></i></a>
+                            <a class="select-currency" href="javascript:void(0);"><i class="twi-dollar-sign"></i>Usd</a>
+                            <div class="user-login">
+                                <a href="javascript:void(0);">
+                                    <i class="twi-user-circle"></i><span>Account</span>
+                                </a>
+                                <div class="account-menu">
+                                    {% if user.is_authenticated %}
+                                    <!-- <div>Hello {{user.first_name}}</div> -->
+                                    <a href="{% url 'logout' %}?next={{ request.path }}">Logout</a>
+                                    {% else %}
+                                    <a href="{% url 'login' %}?next={{ request.path }}">Login/Register</a>
+                                    {% endif %}
+                                </div>
+                            </div>
+                            <a class="carts" href="{% url 'cart' %}"><span>{{cartno}}</span><img src="{% static 'assets/images/cart.png' %}" alt=""></a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </header>
+        <!-- Header End -->
+
+        <!-- Popup Search -->
+        <section class="popup-search-sec">
+            <div class="popup-search-overlay"></div>
+            <div class="overlay-popup">
+                <a href="javascript:void(0);" class="search-closer">x</a><!-- Close Popup Btn -->
+                <div class="middle-search">
+                    <div class="popup-search-form"><!-- Search Form Start -->
+                        <form method="get" action="#">
+                            <input type="search" name="s" id="s" placeholder="Search...">
+                            <button type="submit"><i class="twi-search"></i></button>
+                        </form><!-- Search Form End -->
+                    </div>
+                </div>
+            </div>
+        </section>
+        <!-- Popup Search -->
+
+        <!-- Slider Start -->
+        <section class="slider-01">
+
+            <!-- Scroll Btn -->
+            <div class="scroll-down"><a href="#coupone">scroll to explore</a><img src="{% static 'assets/images/home/scroll.png' %}" alt=""></div>
+            <!-- Scroll Btn -->
+
+            <!-- Counting Item -->
+            <div class="slider-counter">
+                <span class="current-item">02</span>
+                <span class="bar"></span>
+                <span class="total-item">04</span>
+            </div>
+            <!-- Counting Item -->
+
+            <div class="rev_slider_wrapper">
+                <div id="rev_slider_1" class="rev_slider fullwidthabanner" style="display:none;" data-version="5.4.1">
+                    <ul>
+                        <li class="rev-slidebg">
+                            <div class="tp-caption tp-resizeme textRes title-1"
+                                 data-x="['left','left','center','center']" 
+                                 data-hoffset="['0']" 
+
+                                 data-y="['middle']" 
+                                 data-voffset="['-132','-110','-60','-70']" 
+
+                                 data-fontsize="['60','45','40','36']"
+                                 data-fontweight="700"
+                                 data-lineheight="['72','50','52','46']"
+                                 data-width="['570','500','500','100%']"
+                                 data-height="['auto']"
+                                 data-whitesapce="['normal']"
+                                 data-color="['#000000']"
+
+                                 data-type="text" 
+                                 data-responsive_offset="on" 
+
+                                 data-frames='[{"delay":1500,"speed":2000,"frame":"0","from":"y:[100%];z:0;rX:0deg;rY:0;rZ:0;sX:1;sY:1;skX:0;skY:0;opacity:0;","to":"o:1;","ease":"Power4.easeInOut"},
+                                 {"delay":"wait","speed":300,"frame":"999","to":"auto:auto;","ease":"Power3.easeInOut"}]'
+
+
+                                 data-textAlign="['left','left','center','center']"
+                                 data-paddingtop="[0,0,0,0]"
+                                 data-paddingright="[0,0,0,20]"
+                                 data-paddingbottom="[0,0,0,0]"
+                                 data-paddingleft="[0,0,0,20]"
+
+                                 style="z-index: 5;  white-space: normal; text-transform: none;">Style That Takes You Forward.</div>
+                            <div class="tp-caption tp-resizeme textRes"
+                                 data-x="['left','left','center','center']" 
+                                 data-hoffset="['0']" 
+
+                                 data-y="['middle']" 
+                                 data-voffset="['17','17','50','40']" 
+
+                                 data-fontsize="['24','20','18','18']"
+                                 data-fontweight="400"
+                                 data-lineheight="['36','32','30','28']"
+                                 data-width="['570','500','500','100%']"
+                                 data-height="['auto']"
+                                 data-whitesapce="['normal']"
+                                 data-color="['#666666']"
+
+                                 data-type="text" 
+                                 data-responsive_offset="off" 
+
+                                 data-frames='[{"delay":2000,"speed":2000,"frame":"0","from":"y:[100%];z:0;rX:0deg;rY:0;rZ:0;sX:1;sY:1;skX:0;skY:0;opacity:0;","to":"o:1;","ease":"Power4.easeInOut"},
+                                 {"delay":"wait","speed":300,"frame":"999","to":"auto:auto;","ease":"Power3.easeInOut"}]'
+
+                                 data-textAlign="['left','left','center','center']"
+                                 data-paddingtop="[0,0,0,0]"
+                                 data-paddingright="[0,0,0,20]"
+                                 data-paddingbottom="[0,0,0,0]"
+                                 data-paddingleft="[0,0,0,20]"
+
+                                 style="z-index: 5; white-space: normal; text-transform: none;">Lorem ipsum dolor sit amet, consectetur adipisicin
+                                 do eiu smod tempor incididunt ut labore et dolo
+                                 aliqua. Ut enim ad minim veniam.
+                            </div>
+                            <div class="tp-caption tp-resizeme textRes"
+                                 data-x="['left','left','center','center']" 
+                                 data-hoffset="['0']" 
+
+                                 data-y="['middle']" 
+                                 data-voffset="['145','145','150','145']" 
+
+                                 data-fontsize="14"
+                                 data-fontweight="700"
+                                 data-lineheight=".8"
+                                 data-width="['auto']"
+                                 data-height="['auto']"
+                                 data-whitesapce="['normal']"
+                                 data-color="['#FFF']"
+
+                                 data-type="text" 
+                                 data-responsive_offset="off" 
+
+                                 data-frames='[{"delay":2500,"speed":2000,"frame":"0","from":"y:[100%];z:0;rX:0deg;rY:0;rZ:0;sX:1;sY:1;skX:0;skY:0;opacity:0;","to":"o:1;","ease":"Power4.easeInOut"},
+                                 {"delay":"wait","speed":300,"frame":"999","to":"auto:auto;","ease":"Power3.easeInOut"}]'
+
+                                 data-textAlign="center"
+                                 data-paddingtop="[0,0,0,0]"
+                                 data-paddingright="[0,0,0,20]"
+                                 data-paddingbottom="[0,0,0,0]"
+                                 data-paddingleft="[0,0,0,20]"
+
+                                 style="z-index: 5;"><a href="{% url 'shop' %}" class="goru-btn">view collection</a>
+                            </div>
+                            <div class="tp-caption tp-resizeme slider-image"
+                                 data-x="['right','right','center','center']" 
+                                 data-hoffset="['-50','50','0','0']" 
+
+                                 data-y="['middle']" 
+                                 data-voffset="['0']" 
+                                 data-width="['auto','350','auto','auto']"
+                                 data-height="['auto']"
+
+
+                                 data-type="image" 
+                                 data-responsive_offset="off" 
+
+                                 data-frames='[{"delay":3500,"speed":2500,"frame":"0","from":"z:0;rX:0;rY:0;rZ:0;sX:0.8;sY:0.8;skX:0;skY:0;opacity:0;","to":"o:1;","ease":"Power4.easeOut"},{"delay":"wait","speed":300,"frame":"999","to":"auto:auto;","ease":"Power3.easeInOut"}]'
+
+
+                                 data-textAlign="center"
+                                 data-paddingtop="[0,0,0,0]"
+                                 data-paddingright="[0,0,0,25]"
+                                 data-paddingbottom="[0,0,0,0]"
+                                 data-paddingleft="[0,0,0,25]"
+
+                                 style="z-index: 5;"><img src="{% static 'assets/images/home/layer1.jpg' %}" alt="">
+                            </div>
+                        </li>
+                        <li class="rev-slidebg">
+                            <div class="tp-caption tp-resizeme textRes title-1"
+                                 data-x="['left','left','center','center']" 
+                                 data-hoffset="['0']" 
+
+                                 data-y="['middle']" 
+                                 data-voffset="['-132','-110','-60','-70']" 
+
+                                 data-fontsize="['60','45','40','36']"
+                                 data-fontweight="700"
+                                 data-lineheight="['72','50','52','46']"
+                                 data-width="['570','500','500','100%']"
+                                 data-height="['auto']"
+                                 data-whitesapce="['normal']"
+                                 data-color="['#000000']"
+
+                                 data-type="text" 
+                                 data-responsive_offset="on" 
+
+                                 data-frames='[{"delay":1500,"speed":2000,"frame":"0","from":"y:[100%];z:0;rX:0deg;rY:0;rZ:0;sX:1;sY:1;skX:0;skY:0;opacity:0;","to":"o:1;","ease":"Power4.easeInOut"},
+                                 {"delay":"wait","speed":300,"frame":"999","to":"auto:auto;","ease":"Power3.easeInOut"}]'
+
+
+                                 data-textAlign="['left','left','center','center']"
+                                 data-paddingtop="[0,0,0,0]"
+                                 data-paddingright="[0,0,0,20]"
+                                 data-paddingbottom="[0,0,0,0]"
+                                 data-paddingleft="[0,0,0,20]"
+
+                                 style="z-index: 5;  white-space: normal; text-transform: none;">Style That Takes You Forward.</div>
+                            <div class="tp-caption tp-resizeme textRes"
+                                 data-x="['left','left','center','center']" 
+                                 data-hoffset="['0']" 
+
+                                 data-y="['middle']" 
+                                 data-voffset="['17','17','50','40']" 
+
+                                 data-fontsize="['24','20','18','18']"
+                                 data-fontweight="400"
+                                 data-lineheight="['36','32','30','28']"
+                                 data-width="['570','500','500','100%']"
+                                 data-height="['auto']"
+                                 data-whitesapce="['normal']"
+                                 data-color="['#666666']"
+
+                                 data-type="text" 
+                                 data-responsive_offset="off" 
+
+                                 data-frames='[{"delay":2000,"speed":2000,"frame":"0","from":"y:[100%];z:0;rX:0deg;rY:0;rZ:0;sX:1;sY:1;skX:0;skY:0;opacity:0;","to":"o:1;","ease":"Power4.easeInOut"},
+                                 {"delay":"wait","speed":300,"frame":"999","to":"auto:auto;","ease":"Power3.easeInOut"}]'
+
+                                 data-textAlign="['left','left','center','center']"
+                                 data-paddingtop="[0,0,0,0]"
+                                 data-paddingright="[0,0,0,20]"
+                                 data-paddingbottom="[0,0,0,0]"
+                                 data-paddingleft="[0,0,0,20]"
+
+                                 style="z-index: 5; white-space: normal; text-transform: none;">Lorem ipsum dolor sit amet, consectetur adipisicin
+                                 do eiu smod tempor incididunt ut labore et dolo
+                                 aliqua. Ut enim ad minim veniam.
+                            </div>
+                            <div class="tp-caption tp-resizeme textRes"
+                                 data-x="['left','left','center','center']" 
+                                 data-hoffset="['0']" 
+
+                                 data-y="['middle']" 
+                                 data-voffset="['145','145','150','145']" 
+
+                                 data-fontsize="14"
+                                 data-fontweight="700"
+                                 data-lineheight=".8"
+                                 data-width="['auto']"
+                                 data-height="['auto']"
+                                 data-whitesapce="['normal']"
+                                 data-color="['#FFF']"
+
+                                 data-type="text" 
+                                 data-responsive_offset="off" 
+
+                                 data-frames='[{"delay":2500,"speed":2000,"frame":"0","from":"y:[100%];z:0;rX:0deg;rY:0;rZ:0;sX:1;sY:1;skX:0;skY:0;opacity:0;","to":"o:1;","ease":"Power4.easeInOut"},
+                                 {"delay":"wait","speed":300,"frame":"999","to":"auto:auto;","ease":"Power3.easeInOut"}]'
+
+                                 data-textAlign="center"
+                                 data-paddingtop="[0,0,0,0]"
+                                 data-paddingright="[0,0,0,20]"
+                                 data-paddingbottom="[0,0,0,0]"
+                                 data-paddingleft="[0,0,0,20]"
+
+                                 style="z-index: 5;"><a href="{% url 'shop' %}" class="goru-btn">view collection</a>
+                            </div>
+                            <div class="tp-caption tp-resizeme slider-image"
+                                 data-x="['right','right','center','center']" 
+                                 data-hoffset="['-50','50','0','0']" 
+
+                                 data-y="['middle']" 
+                                 data-voffset="['0']" 
+                                 data-width="['auto','350','auto','auto']"
+                                 data-height="['auto']"
+
+
+                                 data-type="image" 
+                                 data-responsive_offset="off" 
+
+                                 data-frames='[{"delay":3500,"speed":2500,"frame":"0","from":"z:0;rX:0;rY:0;rZ:0;sX:0.8;sY:0.8;skX:0;skY:0;opacity:0;","to":"o:1;","ease":"Power4.easeOut"},{"delay":"wait","speed":300,"frame":"999","to":"auto:auto;","ease":"Power3.easeInOut"}]'
+
+
+                                 data-textAlign="center"
+                                 data-paddingtop="[0,0,0,0]"
+                                 data-paddingright="[0,0,0,25]"
+                                 data-paddingbottom="[0,0,0,0]"
+                                 data-paddingleft="[0,0,0,25]"
+
+                                 style="z-index: 5;"><img src="{% static 'assets/images/home/layer1.jpg' %}" alt="">
+                            </div>
+                        </li>
+                        <li class="rev-slidebg">
+                            <div class="tp-caption tp-resizeme textRes title-1"
+                                 data-x="['left','left','center','center']" 
+                                 data-hoffset="['0']" 
+
+                                 data-y="['middle']" 
+                                 data-voffset="['-132','-110','-60','-70']" 
+
+                                 data-fontsize="['60','45','40','36']"
+                                 data-fontweight="700"
+                                 data-lineheight="['72','50','52','46']"
+                                 data-width="['570','500','500','100%']"
+                                 data-height="['auto']"
+                                 data-whitesapce="['normal']"
+                                 data-color="['#000000']"
+
+                                 data-type="text" 
+                                 data-responsive_offset="on" 
+
+                                 data-frames='[{"delay":1500,"speed":2000,"frame":"0","from":"y:[100%];z:0;rX:0deg;rY:0;rZ:0;sX:1;sY:1;skX:0;skY:0;opacity:0;","to":"o:1;","ease":"Power4.easeInOut"},
+                                 {"delay":"wait","speed":300,"frame":"999","to":"auto:auto;","ease":"Power3.easeInOut"}]'
+
+
+                                 data-textAlign="['left','left','center','center']"
+                                 data-paddingtop="[0,0,0,0]"
+                                 data-paddingright="[0,0,0,20]"
+                                 data-paddingbottom="[0,0,0,0]"
+                                 data-paddingleft="[0,0,0,20]"
+
+                                 style="z-index: 5;  white-space: normal; text-transform: none;">Style That Takes You Forward.</div>
+                            <div class="tp-caption tp-resizeme textRes"
+                                 data-x="['left','left','center','center']" 
+                                 data-hoffset="['0']" 
+
+                                 data-y="['middle']" 
+                                 data-voffset="['17','17','50','40']" 
+
+                                 data-fontsize="['24','20','18','18']"
+                                 data-fontweight="400"
+                                 data-lineheight="['36','32','30','28']"
+                                 data-width="['570','500','500','100%']"
+                                 data-height="['auto']"
+                                 data-whitesapce="['normal']"
+                                 data-color="['#666666']"
+
+                                 data-type="text" 
+                                 data-responsive_offset="off" 
+
+                                 data-frames='[{"delay":2000,"speed":2000,"frame":"0","from":"y:[100%];z:0;rX:0deg;rY:0;rZ:0;sX:1;sY:1;skX:0;skY:0;opacity:0;","to":"o:1;","ease":"Power4.easeInOut"},
+                                 {"delay":"wait","speed":300,"frame":"999","to":"auto:auto;","ease":"Power3.easeInOut"}]'
+
+                                 data-textAlign="['left','left','center','center']"
+                                 data-paddingtop="[0,0,0,0]"
+                                 data-paddingright="[0,0,0,20]"
+                                 data-paddingbottom="[0,0,0,0]"
+                                 data-paddingleft="[0,0,0,20]"
+
+                                 style="z-index: 5; white-space: normal; text-transform: none;">Lorem ipsum dolor sit amet, consectetur adipisicin
+                                 do eiu smod tempor incididunt ut labore et dolo
+                                 aliqua. Ut enim ad minim veniam.
+                            </div>
+                            <div class="tp-caption tp-resizeme textRes"
+                                 data-x="['left','left','center','center']" 
+                                 data-hoffset="['0']" 
+
+                                 data-y="['middle']" 
+                                 data-voffset="['145','145','150','145']" 
+
+                                 data-fontsize="14"
+                                 data-fontweight="700"
+                                 data-lineheight=".8"
+                                 data-width="['auto']"
+                                 data-height="['auto']"
+                                 data-whitesapce="['normal']"
+                                 data-color="['#FFF']"
+
+                                 data-type="text" 
+                                 data-responsive_offset="off" 
+
+                                 data-frames='[{"delay":2500,"speed":2000,"frame":"0","from":"y:[100%];z:0;rX:0deg;rY:0;rZ:0;sX:1;sY:1;skX:0;skY:0;opacity:0;","to":"o:1;","ease":"Power4.easeInOut"},
+                                 {"delay":"wait","speed":300,"frame":"999","to":"auto:auto;","ease":"Power3.easeInOut"}]'
+
+                                 data-textAlign="center"
+                                 data-paddingtop="[0,0,0,0]"
+                                 data-paddingright="[0,0,0,20]"
+                                 data-paddingbottom="[0,0,0,0]"
+                                 data-paddingleft="[0,0,0,20]"
+
+                                 style="z-index: 5;"><a href="{% url 'shop' %}" class="goru-btn">view collection</a>
+                            </div>
+                            <div class="tp-caption tp-resizeme slider-image"
+                                 data-x="['right','right','center','center']" 
+                                 data-hoffset="['-50','50','0','0']" 
+
+                                 data-y="['middle']" 
+                                 data-voffset="['0']" 
+                                 data-width="['auto','350','auto','auto']"
+                                 data-height="['auto']"
+
+
+                                 data-type="image" 
+                                 data-responsive_offset="off" 
+
+                                 data-frames='[{"delay":3500,"speed":2500,"frame":"0","from":"z:0;rX:0;rY:0;rZ:0;sX:0.8;sY:0.8;skX:0;skY:0;opacity:0;","to":"o:1;","ease":"Power4.easeOut"},{"delay":"wait","speed":300,"frame":"999","to":"auto:auto;","ease":"Power3.easeInOut"}]'
+
+
+                                 data-textAlign="center"
+                                 data-paddingtop="[0,0,0,0]"
+                                 data-paddingright="[0,0,0,25]"
+                                 data-paddingbottom="[0,0,0,0]"
+                                 data-paddingleft="[0,0,0,25]"
+
+                                 style="z-index: 5;"><img src="{% static 'assets/images/home/layer1.jpg' %}" alt="">
+                            </div>
+                        </li>
+                        <li class="rev-slidebg">
+                            <div class="tp-caption tp-resizeme textRes title-1"
+                                 data-x="['left','left','center','center']" 
+                                 data-hoffset="['0']" 
+
+                                 data-y="['middle']" 
+                                 data-voffset="['-132','-110','-60','-70']" 
+
+                                 data-fontsize="['60','45','40','36']"
+                                 data-fontweight="700"
+                                 data-lineheight="['72','50','52','46']"
+                                 data-width="['570','500','500','100%']"
+                                 data-height="['auto']"
+                                 data-whitesapce="['normal']"
+                                 data-color="['#000000']"
+
+                                 data-type="text" 
+                                 data-responsive_offset="on" 
+
+                                 data-frames='[{"delay":1500,"speed":2000,"frame":"0","from":"y:[100%];z:0;rX:0deg;rY:0;rZ:0;sX:1;sY:1;skX:0;skY:0;opacity:0;","to":"o:1;","ease":"Power4.easeInOut"},
+                                 {"delay":"wait","speed":300,"frame":"999","to":"auto:auto;","ease":"Power3.easeInOut"}]'
+
+
+                                 data-textAlign="['left','left','center','center']"
+                                 data-paddingtop="[0,0,0,0]"
+                                 data-paddingright="[0,0,0,20]"
+                                 data-paddingbottom="[0,0,0,0]"
+                                 data-paddingleft="[0,0,0,20]"
+
+                                 style="z-index: 5;  white-space: normal; text-transform: none;">Style That Takes You Forward.</div>
+                            <div class="tp-caption tp-resizeme textRes"
+                                 data-x="['left','left','center','center']" 
+                                 data-hoffset="['0']" 
+
+                                 data-y="['middle']" 
+                                 data-voffset="['17','17','50','40']" 
+
+                                 data-fontsize="['24','20','18','18']"
+                                 data-fontweight="400"
+                                 data-lineheight="['36','32','30','28']"
+                                 data-width="['570','500','500','100%']"
+                                 data-height="['auto']"
+                                 data-whitesapce="['normal']"
+                                 data-color="['#666666']"
+
+                                 data-type="text" 
+                                 data-responsive_offset="off" 
+
+                                 data-frames='[{"delay":2000,"speed":2000,"frame":"0","from":"y:[100%];z:0;rX:0deg;rY:0;rZ:0;sX:1;sY:1;skX:0;skY:0;opacity:0;","to":"o:1;","ease":"Power4.easeInOut"},
+                                 {"delay":"wait","speed":300,"frame":"999","to":"auto:auto;","ease":"Power3.easeInOut"}]'
+
+                                 data-textAlign="['left','left','center','center']"
+                                 data-paddingtop="[0,0,0,0]"
+                                 data-paddingright="[0,0,0,20]"
+                                 data-paddingbottom="[0,0,0,0]"
+                                 data-paddingleft="[0,0,0,20]"
+
+                                 style="z-index: 5; white-space: normal; text-transform: none;">Lorem ipsum dolor sit amet, consectetur adipisicin
+                                 do eiu smod tempor incididunt ut labore et dolo
+                                 aliqua. Ut enim ad minim veniam.
+                            </div>
+                            <div class="tp-caption tp-resizeme textRes"
+                                 data-x="['left','left','center','center']" 
+                                 data-hoffset="['0']" 
+
+                                 data-y="['middle']" 
+                                 data-voffset="['145','145','150','145']" 
+
+                                 data-fontsize="14"
+                                 data-fontweight="700"
+                                 data-lineheight=".8"
+                                 data-width="['auto']"
+                                 data-height="['auto']"
+                                 data-whitesapce="['normal']"
+                                 data-color="['#FFF']"
+
+                                 data-type="text" 
+                                 data-responsive_offset="off" 
+
+                                 data-frames='[{"delay":2500,"speed":2000,"frame":"0","from":"y:[100%];z:0;rX:0deg;rY:0;rZ:0;sX:1;sY:1;skX:0;skY:0;opacity:0;","to":"o:1;","ease":"Power4.easeInOut"},
+                                 {"delay":"wait","speed":300,"frame":"999","to":"auto:auto;","ease":"Power3.easeInOut"}]'
+
+                                 data-textAlign="center"
+                                 data-paddingtop="[0,0,0,0]"
+                                 data-paddingright="[0,0,0,20]"
+                                 data-paddingbottom="[0,0,0,0]"
+                                 data-paddingleft="[0,0,0,20]"
+
+                                 style="z-index: 5;"><a href="{% url 'shop' %}" class="goru-btn">view collection</a>
+                            </div>
+                            <div class="tp-caption tp-resizeme slider-image"
+                                 data-x="['right','right','center','center']" 
+                                 data-hoffset="['-50','50','0','0']" 
+
+                                 data-y="['middle']" 
+                                 data-voffset="['0']" 
+                                 data-width="['auto','350','auto','auto']"
+                                 data-height="['auto']"
+
+
+                                 data-type="image" 
+                                 data-responsive_offset="off" 
+
+                                 data-frames='[{"delay":3500,"speed":2500,"frame":"0","from":"z:0;rX:0;rY:0;rZ:0;sX:0.8;sY:0.8;skX:0;skY:0;opacity:0;","to":"o:1;","ease":"Power4.easeOut"},{"delay":"wait","speed":300,"frame":"999","to":"auto:auto;","ease":"Power3.easeInOut"}]'
+
+
+                                 data-textAlign="center"
+                                 data-paddingtop="[0,0,0,0]"
+                                 data-paddingright="[0,0,0,25]"
+                                 data-paddingbottom="[0,0,0,0]"
+                                 data-paddingleft="[0,0,0,25]"
+
+                                 style="z-index: 5;"><img src="{% static 'assets/images/home/layer1.jpg' %}" alt="">
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </section>    
+        <!-- Slider End -->
+
+        <!-- Categories Section Start -->
+        <section class="categorie-section">
+
+            <!-- Section Heading -->
+            <div class="sec-heading rotate-rl">Product <span> Categories</span></div>
+            <!-- Section Heading -->
+
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-12">
+                        <h2 class="sec-title">Product Categories</h2>
+                        <p class="sec-desc">
+                            Sed ut perspiciatis unde omnis iste natus<br> er sit voluptatem accusantium dolore.
+                        </p>
+                    </div>
+                </div>
+                <div class="row">
+                    {% for category in categories %}
+                    <div class="col-lg-2 col-md-4">
+                        <a href="{% url 'shop' %}?category={{category.id}}" class="single-cate">
+                            <img src="{{category.icon.url}}" alt="">
+                            <!-- <i class="flaticon-smart-watch"></i>-->{{category.name}} 
+                        </a>
+                    </div>
+                    {% endfor %}
+                </div>
+            </div>
+
+            <!-- shpage -->
+            <div class="cate-shage"><img src="{% static 'assets/images/home/shape1.png' %}" alt=""></div>
+        </section>
+        <!-- Categories Section End -->
+
+        <!-- Service Section Start -->
+        <section class="service-section">
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-4 col-md-6">
+                        <div class="single-service">
+                            <img src="{% static 'assets/images/home/truck.png' %}" alt="">
+                            <h4>100% Free Shipping</h4>
+                            <p>We ship all our products for free as long as you buying within the USA.</p>
+                        </div>
+                    </div>
+                    <div class="col-lg-4 col-md-6">
+                        <div class="single-service">
+                            <img src="{% static 'assets/images/home/headphone.png' %}" alt="">
+                            <h4>24/7 Support</h4>
+                            <p>Our support team is extremely active, you will get response within 2 minutes.</p>
+                        </div>
+                    </div>
+                    <div class="col-lg-4 col-md-6">
+                        <div class="single-service">
+                            <img src="{% static 'assets/images/home/undo.png' %}" alt="">
+                            <h4>30 Day Return</h4>
+                            <p>Our 30 day return program is open from customers, just fill up a simple form.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <!-- Service Section End -->
+
+        <!-- Trending Section Start -->
+        <section class="trending-section" style="background-image: url(assets/images/home/shape2.png);">
+
+            <!-- Section Heading -->
+            <div class="sec-heading rotate-tb">Trending <span> Products</span></div>
+            <!-- Section Heading -->
+
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-12">
+                        <h2 class="sec-title">Trending Products</h2>
+                        <p class="sec-desc">
+                            Sed ut perspiciatis unde omnis iste natus er<br> sit voluptatem accusantium dolore.
+                        </p>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-lg-12">
+                        <div class="trending-slider owl-carousel">
+                            <div class="row">
+                                <div class="col-lg-7 col-md-7">
+                                    <div class="single-trending-product">
+                                        <div class="trend-thumb">
+                                            <img src="{% static 'assets/images/home/t1.jpg' %}" alt="">
+                                        </div>
+                                        <div class="tr-pro-detail">
+                                            <h3>
+                                                <a href="single-product.html">TV Remove Controller</a>
+                                                <div class="product-price clearfix">
+                                                    <span class="price">
+                                                        <span><span class="woocommerce-Price-currencySymbol">$</span>112.00</span>
+                                                    </span>           
+                                                </div>
+                                            </h3>
+                                            <p>
+                                                Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos qui ratione voluptatem sequid.
+                                            </p>
+                                            <a class="tr-atc" href="#">Add To Cart</a>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-lg-5 col-md-5">
+                                    <div class="single-trending-product">
+                                        <div class="trend-thumb">
+                                            <img src="{% static 'assets/images/home/t2.jpg' %}" alt="">
+                                        </div>
+                                        <div class="tr-pro-detail">
+                                            <h3>
+                                                <a href="single-product.html">Camera Lenses</a>
+                                                <div class="product-price clearfix">
+                                                    <span class="price">
+                                                        <span><span class="woocommerce-Price-currencySymbol">$</span>72.00</span>
+                                                    </span>           
+                                                </div>
+                                            </h3>
+                                            <p>
+                                                Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia conse.
+                                            </p>
+                                            <a class="tr-atc" href="#">Add To Cart</a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-lg-5 col-md-5">
+                                    <div class="single-trending-product">
+                                        <div class="trend-thumb">
+                                            <img src="{% static 'assets/images/home/t2.jpg' %}" alt="">
+                                        </div>
+                                        <div class="tr-pro-detail">
+                                            <h3>
+                                                <a href="single-product.html">Camera Lenses</a>
+                                                <div class="product-price clearfix">
+                                                    <span class="price">
+                                                        <span><span class="woocommerce-Price-currencySymbol">$</span>72.00</span>
+                                                    </span>           
+                                                </div>
+                                            </h3>
+                                            <p>
+                                                Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia conse.
+                                            </p>
+                                            <a class="tr-atc" href="#">Add To Cart</a>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-lg-7 col-md-7">
+                                    <div class="single-trending-product">
+                                        <div class="trend-thumb">
+                                            <img src="{% static 'assets/images/home/t1.jpg' %}" alt="">
+                                        </div>
+                                        <div class="tr-pro-detail">
+                                            <h3>
+                                                <a href="single-product.html">TV Remove Controller</a>
+                                                <div class="product-price clearfix">
+                                                    <span class="price">
+                                                        <span><span class="woocommerce-Price-currencySymbol">$</span>112.00</span>
+                                                    </span>           
+                                                </div>
+                                            </h3>
+                                            <p>
+                                                Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos qui ratione voluptatem sequid.
+                                            </p>
+                                            <a class="tr-atc" href="#">Add To Cart</a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <!-- Trending Section End -->
+
+        <!-- Popular Section Start -->
+        <section class="popular-section">
+
+            <!-- Shape Round -->
+            <div class="shape-round">
+                <span></span>
+                <span></span>
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+            <!-- Shape Round -->
+
+            <!-- Section Heading -->
+            <div class="sec-heading rotate-rl">Most <span>Popular</span></div>
+            <!-- Section Heading -->
+
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-12">
+                        <h2 class="sec-title">Most Popular</h2>
+                        <ul class="product-tab-title nav nav-tabs">
+                            <li><a class="active" href="#all" data-toggle="tab">All</a></li>
+                            <li><a href="#smartphones" data-toggle="tab">Smartphones</a></li>
+                            <li><a href="#camera" data-toggle="tab">Camera</a></li>
+                            <li><a href="#gadgets" data-toggle="tab">Gadgets</a></li>
+                            <li><a href="#others" data-toggle="tab">Others</a></li>
+                        </ul>
+                        <div class="tab-content">
+                            <div class="tab-pane fade show in active" id="all" role="tabpanel">
+                                <div class="popular-tab-slider owl-carousel">
+                                    <div class="pp-single-slider">
+                                        <div class="single-popular-product">
+                                            <div class="sp-thumb">
+                                                <img src="{% static 'assets/images/home/p1.jpg' %}" alt="">
+                                                <div class="pro-badge">
+                                                    <p class="sale">Sale</p>
+                                                </div>
+                                            </div>
+                                            <div class="sp-details">
+                                                <h4>Gaming Headset</h4>
+                                                <div class="product-price clearfix">
+                                                    <span class="price">
+                                                        <del><span><span class="woocommerce-Price-currencySymbol">$</span>42.00</span></del>
+                                                        <ins><span><span class="woocommerce-Price-currencySymbol">$</span>38.00</span></ins>
+                                                    </span>         
+                                                </div>
+                                                <div class="sp-details-hover">
+                                                    <a class="sp-cart" href="#"><i class="twi-cart-plus"></i><span>Add to cart</span></a>
+                                                    <a class="sp-wishlist" href="#"><i class="twi-heart2"></i></a>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="single-popular-product">
+                                            <div class="sp-thumb">
+                                                <img src="{% static 'assets/images/home/p4.jpg' %}" alt="">
+                                                <div class="pro-badge">
+                                                    <p class="sale">Sale</p>
+                                                </div>
+                                            </div>
+                                            <div class="sp-details">
+                                                <h4>Camera Lens</h4>
+                                                <div class="product-price clearfix">
+                                                    <span class="price">
+                                                        <del><span><span class="woocommerce-Price-currencySymbol">$</span>52.00</span></del>
+                                                        <ins><span><span class="woocommerce-Price-currencySymbol">$</span>48.00</span></ins>
+                                                    </span>         
+                                                </div>
+                                                <div class="sp-details-hover">
+                                                    <a class="sp-cart" href="#"><i class="twi-cart-plus"></i><span>Add to cart</span></a>
+                                                    <a class="sp-wishlist" href="#"><i class="twi-heart2"></i></a>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="pp-single-slider">
+                                        <div class="single-popular-product">
+                                            <div class="sp-thumb">
+                                                <img src="{% static 'assets/images/home/p2.jpg' %}" alt="">
+                                                <div class="pro-badge">
+                                                    <p class="hot">Hot</p>
+                                                </div>
+                                            </div>
+                                            <div class="sp-details">
+                                                <h4>Novo Headset A30</h4>
+                                                <div class="product-price clearfix">
+                                                    <span class="price">
+                                                        <span><span class="woocommerce-Price-currencySymbol">$</span>122.00</span>
+                                                    </span>         
+                                                </div>
+                                                <div class="sp-details-hover">
+                                                    <a class="sp-cart" href="#"><i class="twi-cart-plus"></i><span>Add to cart</span></a>
+                                                    <a class="sp-wishlist" href="#"><i class="twi-heart2"></i></a>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="single-popular-product">
+                                            <div class="sp-thumb">
+                                                <img src="{% static 'assets/images/home/p5.jpg' %}" alt="">
+                                            </div>
+                                            <div class="sp-details">
+                                                <h4>TV Monitor Screen</h4>
+                                                <div class="product-price clearfix">
+                                                    <span class="price">
+                                                        <span><span class="woocommerce-Price-currencySymbol">$</span>222.00</span>
+                                                    </span>         
+                                                </div>
+                                                <div class="sp-details-hover">
+                                                    <a class="sp-cart" href="#"><i class="twi-cart-plus"></i><span>Add to cart</span></a>
+                                                    <a class="sp-wishlist" href="#"><i class="twi-heart2"></i></a>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="pp-single-slider">
+                                        <div class="single-popular-product">
+                                            <div class="sp-thumb">
+                                                <img src="{% static 'assets/images/home/p6.jpg' %}" alt="">
+                                                <div class="pro-badge">
+                                                    <p class="out-of-stock">Out of Stock</p>
+                                                </div>
+                                            </div>
+                                            <div class="sp-details">
+                                                <h4>Headset</h4>
+                                                <div class="product-price clearfix">
+                                                    <span class="price">
+                                                        <del><span><span class="woocommerce-Price-currencySymbol">$</span>32.00</span></del>
+                                                        <ins><span><span class="woocommerce-Price-currencySymbol">$</span>28.00</span></ins>
+                                                    </span>         
+                                                </div>
+                                                <div class="sp-details-hover">
+                                                    <a class="sp-cart" href="#"><i class="twi-cart-plus"></i><span>Add to cart</span></a>
+                                                    <a class="sp-wishlist" href="#"><i class="twi-heart2"></i></a>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="single-popular-product">
+                                            <div class="sp-thumb">
+                                                <img src="{% static 'assets/images/home/p3.jpg' %}" alt="">
+                                            </div>
+                                            <div class="sp-details">
+                                                <h4>Gaming Controller</h4>
+                                                <div class="product-price clearfix">
+                                                    <span class="price">
+                                                        <del><span><span class="woocommerce-Price-currencySymbol">$</span>42.00</span></del>
+                                                        <ins><span><span class="woocommerce-Price-currencySymbol">$</span>38.00</span></ins>
+                                                    </span>         
+                                                </div>
+                                                <div class="sp-details-hover">
+                                                    <a class="sp-cart" href="#"><i class="twi-cart-plus"></i><span>Add to cart</span></a>
+                                                    <a class="sp-wishlist" href="#"><i class="twi-heart2"></i></a>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="pp-single-slider">
+                                        <div class="single-popular-product">
+                                            <div class="sp-thumb">
+                                                <img src="{% static 'assets/images/home/p6.jpg' %}" alt="">
+                                                <div class="pro-badge">
+                                                    <p class="out-of-stock">Out of Stock</p>
+                                                </div>
+                                            </div>
+                                            <div class="sp-details">
+                                                <h4>Headset</h4>
+                                                <div class="product-price clearfix">
+                                                    <span class="price">
+                                                        <del><span><span class="woocommerce-Price-currencySymbol">$</span>32.00</span></del>
+                                                        <ins><span><span class="woocommerce-Price-currencySymbol">$</span>28.00</span></ins>
+                                                    </span>         
+                                                </div>
+                                                <div class="sp-details-hover">
+                                                    <a class="sp-cart" href="#"><i class="twi-cart-plus"></i><span>Add to cart</span></a>
+                                                    <a class="sp-wishlist" href="#"><i class="twi-heart2"></i></a>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="single-popular-product">
+                                            <div class="sp-thumb">
+                                                <img src="{% static 'images/home/p3.jpg' %}" alt="">
+                                            </div>
+                                            <div class="sp-details">
+                                                <h4>Gaming Controller</h4>
+                                                <div class="product-price clearfix">
+                                                    <span class="price">
+                                                        <del><span><span class="woocommerce-Price-currencySymbol">$</span>42.00</span></del>
+                                                        <ins><span><span class="woocommerce-Price-currencySymbol">$</span>38.00</span></ins>
+                                                    </span>         
+                                                </div>
+                                                <div class="sp-details-hover">
+                                                    <a class="sp-cart" href="#"><i class="twi-cart-plus"></i><span>Add to cart</span></a>
+                                                    <a class="sp-wishlist" href="#"><i class="twi-heart2"></i></a>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="pp-single-slider">
+                                        <div class="single-popular-product">
+                                            <div class="sp-thumb">
+                                                <img src="{% static 'assets/images/home/p1.jpg' %}" alt="">
+                                                <div class="pro-badge">
+                                                    <p class="sale">Sale</p>
+                                                </div>
+                                            </div>
+                                            <div class="sp-details">
+                                                <h4>Gaming Headset</h4>
+                                                <div class="product-price clearfix">
+                                                    <span class="price">
+                                                        <del><span><span class="woocommerce-Price-currencySymbol">$</span>42.00</span></del>
+                                                        <ins><span><span class="woocommerce-Price-currencySymbol">$</span>38.00</span></ins>
+                                                    </span>         
+                                                </div>
+                                                <div class="sp-details-hover">
+                                                    <a class="sp-cart" href="#"><i class="twi-cart-plus"></i><span>Add to cart</span></a>
+                                                    <a class="sp-wishlist" href="#"><i class="twi-heart2"></i></a>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="single-popular-product">
+                                            <div class="sp-thumb">
+                                                <img src="{% static 'assets/images/home/p4.jpg' %}" alt="">
+                                                <div class="pro-badge">
+                                                    <p class="sale">Sale</p>
+                                                </div>
+                                            </div>
+                                            <div class="sp-details">
+                                                <h4>Camera Lens</h4>
+                                                <div class="product-price clearfix">
+                                                    <span class="price">
+                                                        <del><span><span class="woocommerce-Price-currencySymbol">$</span>52.00</span></del>
+                                                        <ins><span><span class="woocommerce-Price-currencySymbol">$</span>48.00</span></ins>
+                                                    </span>         
+                                                </div>
+                                                <div class="sp-details-hover">
+                                                    <a class="sp-cart" href="#"><i class="twi-cart-plus"></i><span>Add to cart</span></a>
+                                                    <a class="sp-wishlist" href="#"><i class="twi-heart2"></i></a>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="pp-single-slider">
+                                        <div class="single-popular-product">
+                                            <div class="sp-thumb">
+                                                <img src="{% static 'assets/images/home/p2.jpg' %}" alt="">
+                                                <div class="pro-badge">
+                                                    <p class="hot">Hot</p>
+                                                </div>
+                                            </div>
+                                            <div class="sp-details">
+                                                <h4>Novo Headset A30</h4>
+                                                <div class="product-price clearfix">
+                                                    <span class="price">
+                                                        <span><span class="woocommerce-Price-currencySymbol">$</span>122.00</span>
+                                                    </span>         
+                                                </div>
+                                                <div class="sp-details-hover">
+                                                    <a class="sp-cart" href="#"><i class="twi-cart-plus"></i><span>Add to cart</span></a>
+                                                    <a class="sp-wishlist" href="#"><i class="twi-heart2"></i></a>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="single-popular-product">
+                                            <div class="sp-thumb">
+                                                <img src="{% static 'assets/images/home/p5.jpg' %}" alt="">
+                                            </div>
+                                            <div class="sp-details">
+                                                <h4>TV Monitor Screen</h4>
+                                                <div class="product-price clearfix">
+                                                    <span class="price">
+                                                        <span><span class="woocommerce-Price-currencySymbol">$</span>222.00</span>
+                                                    </span>         
+                                                </div>
+                                                <div class="sp-details-hover">
+                                                    <a class="sp-cart" href="#"><i class="twi-cart-plus"></i><span>Add to cart</span></a>
+                                                    <a class="sp-wishlist" href="#"><i class="twi-heart2"></i></a>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="tab-pane fade in" id="smartphones" role="tabpanel">
+                                <div class="popular-tab-slider owl-carousel">
+                                    <div class="pp-single-slider">
+                                        <div class="single-popular-product">
+                                            <div class="sp-thumb">
+                                                <img src="{% static 'assets/images/home/p6.jpg' %}" alt="">
+                                                <div class="pro-badge">
+                                                    <p class="sale">Sale</p>
+                                                </div>
+                                            </div>
+                                            <div class="sp-details">
+                                                <h4>Gaming Headset</h4>
+                                                <div class="product-price clearfix">
+                                                    <span class="price">
+                                                        <del><span><span class="woocommerce-Price-currencySymbol">$</span>42.00</span></del>
+                                                        <ins><span><span class="woocommerce-Price-currencySymbol">$</span>38.00</span></ins>
+                                                    </span>         
+                                                </div>
+                                                <div class="sp-details-hover">
+                                                    <a class="sp-cart" href="#"><i class="twi-cart-plus"></i><span>Add to cart</span></a>
+                                                    <a class="sp-wishlist" href="#"><i class="twi-heart2"></i></a>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="single-popular-product">
+                                            <div class="sp-thumb">
+                                                <img src="{% static 'assets/images/home/p5.jpg' %}" alt="">
+                                                <div class="pro-badge">
+                                                    <p class="sale">Sale</p>
+                                                </div>
+                                            </div>
+                                            <div class="sp-details">
+                                                <h4>Camera Lens</h4>
+                                                <div class="product-price clearfix">
+                                                    <span class="price">
+                                                        <del><span><span class="woocommerce-Price-currencySymbol">$</span>52.00</span></del>
+                                                        <ins><span><span class="woocommerce-Price-currencySymbol">$</span>48.00</span></ins>
+                                                    </span>         
+                                                </div>
+                                                <div class="sp-details-hover">
+                                                    <a class="sp-cart" href="#"><i class="twi-cart-plus"></i><span>Add to cart</span></a>
+                                                    <a class="sp-wishlist" href="#"><i class="twi-heart2"></i></a>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="pp-single-slider">
+                                        <div class="single-popular-product">
+                                            <div class="sp-thumb">
+                                                <img src="{% static 'assets/images/home/p4.jpg' %}" alt="">
+                                                <div class="pro-badge">
+                                                    <p class="hot">Hot</p>
+                                                </div>
+                                            </div>
+                                            <div class="sp-details">
+                                                <h4>Novo Headset A30</h4>
+                                                <div class="product-price clearfix">
+                                                    <span class="price">
+                                                        <span><span class="woocommerce-Price-currencySymbol">$</span>122.00</span>
+                                                    </span>         
+                                                </div>
+                                                <div class="sp-details-hover">
+                                                    <a class="sp-cart" href="#"><i class="twi-cart-plus"></i><span>Add to cart</span></a>
+                                                    <a class="sp-wishlist" href="#"><i class="twi-heart2"></i></a>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="single-popular-product">
+                                            <div class="sp-thumb">
+                                                <img src="{% static 'assets/images/home/p3.jpg' %}" alt="">
+                                            </div>
+                                            <div class="sp-details">
+                                                <h4>TV Monitor Screen</h4>
+                                                <div class="product-price clearfix">
+                                                    <span class="price">
+                                                        <span><span class="woocommerce-Price-currencySymbol">$</span>222.00</span>
+                                                    </span>         
+                                                </div>
+                                                <div class="sp-details-hover">
+                                                    <a class="sp-cart" href="#"><i class="twi-cart-plus"></i><span>Add to cart</span></a>
+                                                    <a class="sp-wishlist" href="#"><i class="twi-heart2"></i></a>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="pp-single-slider">
+                                        <div class="single-popular-product">
+                                            <div class="sp-thumb">
+                                                <img src="{% static 'assets/images/home/p2.jpg' %}" alt="">
+                                                <div class="pro-badge">
+                                                    <p class="out-of-stock">Out of Stock</p>
+                                                </div>
+                                            </div>
+                                            <div class="sp-details">
+                                                <h4>Headset</h4>
+                                                <div class="product-price clearfix">
+                                                    <span class="price">
+                                                        <del><span><span class="woocommerce-Price-currencySymbol">$</span>32.00</span></del>
+                                                        <ins><span><span class="woocommerce-Price-currencySymbol">$</span>28.00</span></ins>
+                                                    </span>         
+                                                </div>
+                                                <div class="sp-details-hover">
+                                                    <a class="sp-cart" href="#"><i class="twi-cart-plus"></i><span>Add to cart</span></a>
+                                                    <a class="sp-wishlist" href="#"><i class="twi-heart2"></i></a>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="single-popular-product">
+                                            <div class="sp-thumb">
+                                                <img src="{% static 'assets/images/home/p1.jpg' %}" alt="">
+                                            </div>
+                                            <div class="sp-details">
+                                                <h4>Gaming Controller</h4>
+                                                <div class="product-price clearfix">
+                                                    <span class="price">
+                                                        <del><span><span class="woocommerce-Price-currencySymbol">$</span>42.00</span></del>
+                                                        <ins><span><span class="woocommerce-Price-currencySymbol">$</span>38.00</span></ins>
+                                                    </span>         
+                                                </div>
+                                                <div class="sp-details-hover">
+                                                    <a class="sp-cart" href="#"><i class="twi-cart-plus"></i><span>Add to cart</span></a>
+                                                    <a class="sp-wishlist" href="#"><i class="twi-heart2"></i></a>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="pp-single-slider">
+                                        <div class="single-popular-product">
+                                            <div class="sp-thumb">
+                                                <img src="{% static 'assets/images/home/p6.jpg' %}" alt="">
+                                                <div class="pro-badge">
+                                                    <p class="out-of-stock">Out of Stock</p>
+                                                </div>
+                                            </div>
+                                            <div class="sp-details">
+                                                <h4>Headset</h4>
+                                                <div class="product-price clearfix">
+                                                    <span class="price">
+                                                        <del><span><span class="woocommerce-Price-currencySymbol">$</span>32.00</span></del>
+                                                        <ins><span><span class="woocommerce-Price-currencySymbol">$</span>28.00</span></ins>
+                                                    </span>         
+                                                </div>
+                                                <div class="sp-details-hover">
+                                                    <a class="sp-cart" href="#"><i class="twi-cart-plus"></i><span>Add to cart</span></a>
+                                                    <a class="sp-wishlist" href="#"><i class="twi-heart2"></i></a>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="single-popular-product">
+                                            <div class="sp-thumb">
+                                                <img src="{% static 'assets/images/home/p3.jpg' %}" alt="">
+                                            </div>
+                                            <div class="sp-details">
+                                                <h4>Gaming Controller</h4>
+                                                <div class="product-price clearfix">
+                                                    <span class="price">
+                                                        <del><span><span class="woocommerce-Price-currencySymbol">$</span>42.00</span></del>
+                                                        <ins><span><span class="woocommerce-Price-currencySymbol">$</span>38.00</span></ins>
+                                                    </span>         
+                                                </div>
+                                                <div class="sp-details-hover">
+                                                    <a class="sp-cart" href="#"><i class="twi-cart-plus"></i><span>Add to cart</span></a>
+                                                    <a class="sp-wishlist" href="#"><i class="twi-heart2"></i></a>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="pp-single-slider">
+                                        <div class="single-popular-product">
+                                            <div class="sp-thumb">
+                                                <img src="{% static 'assets/images/home/p1.jpg' %}" alt="">
+                                                <div class="pro-badge">
+                                                    <p class="sale">Sale</p>
+                                                </div>
+                                            </div>
+                                            <div class="sp-details">
+                                                <h4>Gaming Headset</h4>
+                                                <div class="product-price clearfix">
+                                                    <span class="price">
+                                                        <del><span><span class="woocommerce-Price-currencySymbol">$</span>42.00</span></del>
+                                                        <ins><span><span class="woocommerce-Price-currencySymbol">$</span>38.00</span></ins>
+                                                    </span>         
+                                                </div>
+                                                <div class="sp-details-hover">
+                                                    <a class="sp-cart" href="#"><i class="twi-cart-plus"></i><span>Add to cart</span></a>
+                                                    <a class="sp-wishlist" href="#"><i class="twi-heart2"></i></a>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="single-popular-product">
+                                            <div class="sp-thumb">
+                                                <img src="{% static 'assets/images/home/p4.jpg' %}" alt="">
+                                                <div class="pro-badge">
+                                                    <p class="sale">Sale</p>
+                                                </div>
+                                            </div>
+                                            <div class="sp-details">
+                                                <h4>Camera Lens</h4>
+                                                <div class="product-price clearfix">
+                                                    <span class="price">
+                                                        <del><span><span class="woocommerce-Price-currencySymbol">$</span>52.00</span></del>
+                                                        <ins><span><span class="woocommerce-Price-currencySymbol">$</span>48.00</span></ins>
+                                                    </span>         
+                                                </div>
+                                                <div class="sp-details-hover">
+                                                    <a class="sp-cart" href="#"><i class="twi-cart-plus"></i><span>Add to cart</span></a>
+                                                    <a class="sp-wishlist" href="#"><i class="twi-heart2"></i></a>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="pp-single-slider">
+                                        <div class="single-popular-product">
+                                            <div class="sp-thumb">
+                                                <img src="{% static 'assets/images/home/p2.jpg' %}" alt="">
+                                                <div class="pro-badge">
+                                                    <p class="hot">Hot</p>
+                                                </div>
+                                            </div>
+                                            <div class="sp-details">
+                                                <h4>Novo Headset A30</h4>
+                                                <div class="product-price clearfix">
+                                                    <span class="price">
+                                                        <span><span class="woocommerce-Price-currencySymbol">$</span>122.00</span>
+                                                    </span>         
+                                                </div>
+                                                <div class="sp-details-hover">
+                                                    <a class="sp-cart" href="#"><i class="twi-cart-plus"></i><span>Add to cart</span></a>
+                                                    <a class="sp-wishlist" href="#"><i class="twi-heart2"></i></a>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="single-popular-product">
+                                            <div class="sp-thumb">
+                                                <img src="{% static 'assets/images/home/p5.jpg' %}" alt="">
+                                            </div>
+                                            <div class="sp-details">
+                                                <h4>TV Monitor Screen</h4>
+                                                <div class="product-price clearfix">
+                                                    <span class="price">
+                                                        <span><span class="woocommerce-Price-currencySymbol">$</span>222.00</span>
+                                                    </span>         
+                                                </div>
+                                                <div class="sp-details-hover">
+                                                    <a class="sp-cart" href="#"><i class="twi-cart-plus"></i><span>Add to cart</span></a>
+                                                    <a class="sp-wishlist" href="#"><i class="twi-heart2"></i></a>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="tab-pane fade in" id="camera" role="tabpanel">
+                                <div class="popular-tab-slider owl-carousel">
+                                    <div class="pp-single-slider">
+                                        <div class="single-popular-product">
+                                            <div class="sp-thumb">
+                                                <img src="{% static 'assets/images/home/p2.jpg' %}" alt="">
+                                                <div class="pro-badge">
+                                                    <p class="sale">Sale</p>
+                                                </div>
+                                            </div>
+                                            <div class="sp-details">
+                                                <h4>Gaming Headset</h4>
+                                                <div class="product-price clearfix">
+                                                    <span class="price">
+                                                        <del><span><span class="woocommerce-Price-currencySymbol">$</span>42.00</span></del>
+                                                        <ins><span><span class="woocommerce-Price-currencySymbol">$</span>38.00</span></ins>
+                                                    </span>         
+                                                </div>
+                                                <div class="sp-details-hover">
+                                                    <a class="sp-cart" href="#"><i class="twi-cart-plus"></i><span>Add to cart</span></a>
+                                                    <a class="sp-wishlist" href="#"><i class="twi-heart2"></i></a>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="single-popular-product">
+                                            <div class="sp-thumb">
+                                                <img src="{% static 'assets/images/home/p3.jpg' %}" alt="">
+                                                <div class="pro-badge">
+                                                    <p class="sale">Sale</p>
+                                                </div>
+                                            </div>
+                                            <div class="sp-details">
+                                                <h4>Camera Lens</h4>
+                                                <div class="product-price clearfix">
+                                                    <span class="price">
+                                                        <del><span><span class="woocommerce-Price-currencySymbol">$</span>52.00</span></del>
+                                                        <ins><span><span class="woocommerce-Price-currencySymbol">$</span>48.00</span></ins>
+                                                    </span>         
+                                                </div>
+                                                <div class="sp-details-hover">
+                                                    <a class="sp-cart" href="#"><i class="twi-cart-plus"></i><span>Add to cart</span></a>
+                                                    <a class="sp-wishlist" href="#"><i class="twi-heart2"></i></a>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="pp-single-slider">
+                                        <div class="single-popular-product">
+                                            <div class="sp-thumb">
+                                                <img src="{% static 'assets/images/home/p4.jpg' %}" alt="">
+                                                <div class="pro-badge">
+                                                    <p class="hot">Hot</p>
+                                                </div>
+                                            </div>
+                                            <div class="sp-details">
+                                                <h4>Novo Headset A30</h4>
+                                                <div class="product-price clearfix">
+                                                    <span class="price">
+                                                        <span><span class="woocommerce-Price-currencySymbol">$</span>122.00</span>
+                                                    </span>         
+                                                </div>
+                                                <div class="sp-details-hover">
+                                                    <a class="sp-cart" href="#"><i class="twi-cart-plus"></i><span>Add to cart</span></a>
+                                                    <a class="sp-wishlist" href="#"><i class="twi-heart2"></i></a>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="single-popular-product">
+                                            <div class="sp-thumb">
+                                                <img src="{% static 'assets/images/home/p1.jpg' %}" alt="">
+                                            </div>
+                                            <div class="sp-details">
+                                                <h4>TV Monitor Screen</h4>
+                                                <div class="product-price clearfix">
+                                                    <span class="price">
+                                                        <span><span class="woocommerce-Price-currencySymbol">$</span>222.00</span>
+                                                    </span>         
+                                                </div>
+                                                <div class="sp-details-hover">
+                                                    <a class="sp-cart" href="#"><i class="twi-cart-plus"></i><span>Add to cart</span></a>
+                                                    <a class="sp-wishlist" href="#"><i class="twi-heart2"></i></a>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="pp-single-slider">
+                                        <div class="single-popular-product">
+                                            <div class="sp-thumb">
+                                                <img src="{% static 'assets/images/home/p5.jpg' %}" alt="">
+                                                <div class="pro-badge">
+                                                    <p class="out-of-stock">Out of Stock</p>
+                                                </div>
+                                            </div>
+                                            <div class="sp-details">
+                                                <h4>Headset</h4>
+                                                <div class="product-price clearfix">
+                                                    <span class="price">
+                                                        <del><span><span class="woocommerce-Price-currencySymbol">$</span>32.00</span></del>
+                                                        <ins><span><span class="woocommerce-Price-currencySymbol">$</span>28.00</span></ins>
+                                                    </span>         
+                                                </div>
+                                                <div class="sp-details-hover">
+                                                    <a class="sp-cart" href="#"><i class="twi-cart-plus"></i><span>Add to cart</span></a>
+                                                    <a class="sp-wishlist" href="#"><i class="twi-heart2"></i></a>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="single-popular-product">
+                                            <div class="sp-thumb">
+                                                <img src="{% static 'assets/images/home/p6.jpg' %}" alt="">
+                                            </div>
+                                            <div class="sp-details">
+                                                <h4>Gaming Controller</h4>
+                                                <div class="product-price clearfix">
+                                                    <span class="price">
+                                                        <del><span><span class="woocommerce-Price-currencySymbol">$</span>42.00</span></del>
+                                                        <ins><span><span class="woocommerce-Price-currencySymbol">$</span>38.00</span></ins>
+                                                    </span>         
+                                                </div>
+                                                <div class="sp-details-hover">
+                                                    <a class="sp-cart" href="#"><i class="twi-cart-plus"></i><span>Add to cart</span></a>
+                                                    <a class="sp-wishlist" href="#"><i class="twi-heart2"></i></a>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="pp-single-slider">
+                                        <div class="single-popular-product">
+                                            <div class="sp-thumb">
+                                                <img src="{% static 'assets/images/home/p6.jpg' %}" alt="">
+                                                <div class="pro-badge">
+                                                    <p class="out-of-stock">Out of Stock</p>
+                                                </div>
+                                            </div>
+                                            <div class="sp-details">
+                                                <h4>Headset</h4>
+                                                <div class="product-price clearfix">
+                                                    <span class="price">
+                                                        <del><span><span class="woocommerce-Price-currencySymbol">$</span>32.00</span></del>
+                                                        <ins><span><span class="woocommerce-Price-currencySymbol">$</span>28.00</span></ins>
+                                                    </span>         
+                                                </div>
+                                                <div class="sp-details-hover">
+                                                    <a class="sp-cart" href="#"><i class="twi-cart-plus"></i><span>Add to cart</span></a>
+                                                    <a class="sp-wishlist" href="#"><i class="twi-heart2"></i></a>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="single-popular-product">
+                                            <div class="sp-thumb">
+                                                <img src="{% static 'assets/images/home/p3.jpg' %}" alt="">
+                                            </div>
+                                            <div class="sp-details">
+                                                <h4>Gaming Controller</h4>
+                                                <div class="product-price clearfix">
+                                                    <span class="price">
+                                                        <del><span><span class="woocommerce-Price-currencySymbol">$</span>42.00</span></del>
+                                                        <ins><span><span class="woocommerce-Price-currencySymbol">$</span>38.00</span></ins>
+                                                    </span>         
+                                                </div>
+                                                <div class="sp-details-hover">
+                                                    <a class="sp-cart" href="#"><i class="twi-cart-plus"></i><span>Add to cart</span></a>
+                                                    <a class="sp-wishlist" href="#"><i class="twi-heart2"></i></a>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="pp-single-slider">
+                                        <div class="single-popular-product">
+                                            <div class="sp-thumb">
+                                                <img src="{% static 'assets/images/home/p1.jpg' %}" alt="">
+                                                <div class="pro-badge">
+                                                    <p class="sale">Sale</p>
+                                                </div>
+                                            </div>
+                                            <div class="sp-details">
+                                                <h4>Gaming Headset</h4>
+                                                <div class="product-price clearfix">
+                                                    <span class="price">
+                                                        <del><span><span class="woocommerce-Price-currencySymbol">$</span>42.00</span></del>
+                                                        <ins><span><span class="woocommerce-Price-currencySymbol">$</span>38.00</span></ins>
+                                                    </span>         
+                                                </div>
+                                                <div class="sp-details-hover">
+                                                    <a class="sp-cart" href="#"><i class="twi-cart-plus"></i><span>Add to cart</span></a>
+                                                    <a class="sp-wishlist" href="#"><i class="twi-heart2"></i></a>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="single-popular-product">
+                                            <div class="sp-thumb">
+                                                <img src="{% static 'assets/images/home/p4.jpg' %}" alt="">
+                                                <div class="pro-badge">
+                                                    <p class="sale">Sale</p>
+                                                </div>
+                                            </div>
+                                            <div class="sp-details">
+                                                <h4>Camera Lens</h4>
+                                                <div class="product-price clearfix">
+                                                    <span class="price">
+                                                        <del><span><span class="woocommerce-Price-currencySymbol">$</span>52.00</span></del>
+                                                        <ins><span><span class="woocommerce-Price-currencySymbol">$</span>48.00</span></ins>
+                                                    </span>         
+                                                </div>
+                                                <div class="sp-details-hover">
+                                                    <a class="sp-cart" href="#"><i class="twi-cart-plus"></i><span>Add to cart</span></a>
+                                                    <a class="sp-wishlist" href="#"><i class="twi-heart2"></i></a>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="pp-single-slider">
+                                        <div class="single-popular-product">
+                                            <div class="sp-thumb">
+                                                <img src="{% static 'assets/images/home/p2.jpg' %}" alt="">
+                                                <div class="pro-badge">
+                                                    <p class="hot">Hot</p>
+                                                </div>
+                                            </div>
+                                            <div class="sp-details">
+                                                <h4>Novo Headset A30</h4>
+                                                <div class="product-price clearfix">
+                                                    <span class="price">
+                                                        <span><span class="woocommerce-Price-currencySymbol">$</span>122.00</span>
+                                                    </span>         
+                                                </div>
+                                                <div class="sp-details-hover">
+                                                    <a class="sp-cart" href="#"><i class="twi-cart-plus"></i><span>Add to cart</span></a>
+                                                    <a class="sp-wishlist" href="#"><i class="twi-heart2"></i></a>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="single-popular-product">
+                                            <div class="sp-thumb">
+                                                <img src="{% static 'assets/images/home/p5.jpg' %}" alt="">
+                                            </div>
+                                            <div class="sp-details">
+                                                <h4>TV Monitor Screen</h4>
+                                                <div class="product-price clearfix">
+                                                    <span class="price">
+                                                        <span><span class="woocommerce-Price-currencySymbol">$</span>222.00</span>
+                                                    </span>         
+                                                </div>
+                                                <div class="sp-details-hover">
+                                                    <a class="sp-cart" href="#"><i class="twi-cart-plus"></i><span>Add to cart</span></a>
+                                                    <a class="sp-wishlist" href="#"><i class="twi-heart2"></i></a>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="tab-pane fade in" id="gadgets" role="tabpanel">
+                                <div class="popular-tab-slider owl-carousel">
+                                    <div class="pp-single-slider">
+                                        <div class="single-popular-product">
+                                            <div class="sp-thumb">
+                                                <img src="{% static 'assets/images/home/p5.jpg' %}" alt="">
+                                                <div class="pro-badge">
+                                                    <p class="sale">Sale</p>
+                                                </div>
+                                            </div>
+                                            <div class="sp-details">
+                                                <h4>Gaming Headset</h4>
+                                                <div class="product-price clearfix">
+                                                    <span class="price">
+                                                        <del><span><span class="woocommerce-Price-currencySymbol">$</span>42.00</span></del>
+                                                        <ins><span><span class="woocommerce-Price-currencySymbol">$</span>38.00</span></ins>
+                                                    </span>         
+                                                </div>
+                                                <div class="sp-details-hover">
+                                                    <a class="sp-cart" href="#"><i class="twi-cart-plus"></i><span>Add to cart</span></a>
+                                                    <a class="sp-wishlist" href="#"><i class="twi-heart2"></i></a>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="single-popular-product">
+                                            <div class="sp-thumb">
+                                                <img src="{% static 'assets/images/home/p6.jpg' %}" alt="">
+                                                <div class="pro-badge">
+                                                    <p class="sale">Sale</p>
+                                                </div>
+                                            </div>
+                                            <div class="sp-details">
+                                                <h4>Camera Lens</h4>
+                                                <div class="product-price clearfix">
+                                                    <span class="price">
+                                                        <del><span><span class="woocommerce-Price-currencySymbol">$</span>52.00</span></del>
+                                                        <ins><span><span class="woocommerce-Price-currencySymbol">$</span>48.00</span></ins>
+                                                    </span>         
+                                                </div>
+                                                <div class="sp-details-hover">
+                                                    <a class="sp-cart" href="#"><i class="twi-cart-plus"></i><span>Add to cart</span></a>
+                                                    <a class="sp-wishlist" href="#"><i class="twi-heart2"></i></a>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="pp-single-slider">
+                                        <div class="single-popular-product">
+                                            <div class="sp-thumb">
+                                                <img src="{% static 'assets/images/home/p1.jpg' %}" alt="">
+                                                <div class="pro-badge">
+                                                    <p class="hot">Hot</p>
+                                                </div>
+                                            </div>
+                                            <div class="sp-details">
+                                                <h4>Novo Headset A30</h4>
+                                                <div class="product-price clearfix">
+                                                    <span class="price">
+                                                        <span><span class="woocommerce-Price-currencySymbol">$</span>122.00</span>
+                                                    </span>         
+                                                </div>
+                                                <div class="sp-details-hover">
+                                                    <a class="sp-cart" href="#"><i class="twi-cart-plus"></i><span>Add to cart</span></a>
+                                                    <a class="sp-wishlist" href="#"><i class="twi-heart2"></i></a>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="single-popular-product">
+                                            <div class="sp-thumb">
+                                                <img src="{% static 'assets/images/home/p2.jpg' %}" alt="">
+                                            </div>
+                                            <div class="sp-details">
+                                                <h4>TV Monitor Screen</h4>
+                                                <div class="product-price clearfix">
+                                                    <span class="price">
+                                                        <span><span class="woocommerce-Price-currencySymbol">$</span>222.00</span>
+                                                    </span>         
+                                                </div>
+                                                <div class="sp-details-hover">
+                                                    <a class="sp-cart" href="#"><i class="twi-cart-plus"></i><span>Add to cart</span></a>
+                                                    <a class="sp-wishlist" href="#"><i class="twi-heart2"></i></a>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="pp-single-slider">
+                                        <div class="single-popular-product">
+                                            <div class="sp-thumb">
+                                                <img src="{% static 'assets/images/home/p3.jpg' %}" alt="">
+                                                <div class="pro-badge">
+                                                    <p class="out-of-stock">Out of Stock</p>
+                                                </div>
+                                            </div>
+                                            <div class="sp-details">
+                                                <h4>Headset</h4>
+                                                <div class="product-price clearfix">
+                                                    <span class="price">
+                                                        <del><span><span class="woocommerce-Price-currencySymbol">$</span>32.00</span></del>
+                                                        <ins><span><span class="woocommerce-Price-currencySymbol">$</span>28.00</span></ins>
+                                                    </span>         
+                                                </div>
+                                                <div class="sp-details-hover">
+                                                    <a class="sp-cart" href="#"><i class="twi-cart-plus"></i><span>Add to cart</span></a>
+                                                    <a class="sp-wishlist" href="#"><i class="twi-heart2"></i></a>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="single-popular-product">
+                                            <div class="sp-thumb">
+                                                <img src="{% static 'assets/images/home/p4.jpg' %}" alt="">
+                                            </div>
+                                            <div class="sp-details">
+                                                <h4>Gaming Controller</h4>
+                                                <div class="product-price clearfix">
+                                                    <span class="price">
+                                                        <del><span><span class="woocommerce-Price-currencySymbol">$</span>42.00</span></del>
+                                                        <ins><span><span class="woocommerce-Price-currencySymbol">$</span>38.00</span></ins>
+                                                    </span>         
+                                                </div>
+                                                <div class="sp-details-hover">
+                                                    <a class="sp-cart" href="#"><i class="twi-cart-plus"></i><span>Add to cart</span></a>
+                                                    <a class="sp-wishlist" href="#"><i class="twi-heart2"></i></a>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="pp-single-slider">
+                                        <div class="single-popular-product">
+                                            <div class="sp-thumb">
+                                                <img src="{% static 'assets/images/home/p6.jpg' %}" alt="">
+                                                <div class="pro-badge">
+                                                    <p class="out-of-stock">Out of Stock</p>
+                                                </div>
+                                            </div>
+                                            <div class="sp-details">
+                                                <h4>Headset</h4>
+                                                <div class="product-price clearfix">
+                                                    <span class="price">
+                                                        <del><span><span class="woocommerce-Price-currencySymbol">$</span>32.00</span></del>
+                                                        <ins><span><span class="woocommerce-Price-currencySymbol">$</span>28.00</span></ins>
+                                                    </span>         
+                                                </div>
+                                                <div class="sp-details-hover">
+                                                    <a class="sp-cart" href="#"><i class="twi-cart-plus"></i><span>Add to cart</span></a>
+                                                    <a class="sp-wishlist" href="#"><i class="twi-heart2"></i></a>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="single-popular-product">
+                                            <div class="sp-thumb">
+                                                <img src="{% static 'assets/images/home/p3.jpg' %}" alt="">
+                                            </div>
+                                            <div class="sp-details">
+                                                <h4>Gaming Controller</h4>
+                                                <div class="product-price clearfix">
+                                                    <span class="price">
+                                                        <del><span><span class="woocommerce-Price-currencySymbol">$</span>42.00</span></del>
+                                                        <ins><span><span class="woocommerce-Price-currencySymbol">$</span>38.00</span></ins>
+                                                    </span>         
+                                                </div>
+                                                <div class="sp-details-hover">
+                                                    <a class="sp-cart" href="#"><i class="twi-cart-plus"></i><span>Add to cart</span></a>
+                                                    <a class="sp-wishlist" href="#"><i class="twi-heart2"></i></a>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="pp-single-slider">
+                                        <div class="single-popular-product">
+                                            <div class="sp-thumb">
+                                                <img src="{% static 'assets/images/home/p1.jpg' %}" alt="">
+                                                <div class="pro-badge">
+                                                    <p class="sale">Sale</p>
+                                                </div>
+                                            </div>
+                                            <div class="sp-details">
+                                                <h4>Gaming Headset</h4>
+                                                <div class="product-price clearfix">
+                                                    <span class="price">
+                                                        <del><span><span class="woocommerce-Price-currencySymbol">$</span>42.00</span></del>
+                                                        <ins><span><span class="woocommerce-Price-currencySymbol">$</span>38.00</span></ins>
+                                                    </span>         
+                                                </div>
+                                                <div class="sp-details-hover">
+                                                    <a class="sp-cart" href="#"><i class="twi-cart-plus"></i><span>Add to cart</span></a>
+                                                    <a class="sp-wishlist" href="#"><i class="twi-heart2"></i></a>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="single-popular-product">
+                                            <div class="sp-thumb">
+                                                <img src="{% static 'assets/images/home/p4.jpg' %}" alt="">
+                                                <div class="pro-badge">
+                                                    <p class="sale">Sale</p>
+                                                </div>
+                                            </div>
+                                            <div class="sp-details">
+                                                <h4>Camera Lens</h4>
+                                                <div class="product-price clearfix">
+                                                    <span class="price">
+                                                        <del><span><span class="woocommerce-Price-currencySymbol">$</span>52.00</span></del>
+                                                        <ins><span><span class="woocommerce-Price-currencySymbol">$</span>48.00</span></ins>
+                                                    </span>         
+                                                </div>
+                                                <div class="sp-details-hover">
+                                                    <a class="sp-cart" href="#"><i class="twi-cart-plus"></i><span>Add to cart</span></a>
+                                                    <a class="sp-wishlist" href="#"><i class="twi-heart2"></i></a>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="pp-single-slider">
+                                        <div class="single-popular-product">
+                                            <div class="sp-thumb">
+                                                <img src="{% static 'assets/images/home/p2.jpg' %}" alt="">
+                                                <div class="pro-badge">
+                                                    <p class="hot">Hot</p>
+                                                </div>
+                                            </div>
+                                            <div class="sp-details">
+                                                <h4>Novo Headset A30</h4>
+                                                <div class="product-price clearfix">
+                                                    <span class="price">
+                                                        <span><span class="woocommerce-Price-currencySymbol">$</span>122.00</span>
+                                                    </span>         
+                                                </div>
+                                                <div class="sp-details-hover">
+                                                    <a class="sp-cart" href="#"><i class="twi-cart-plus"></i><span>Add to cart</span></a>
+                                                    <a class="sp-wishlist" href="#"><i class="twi-heart2"></i></a>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="single-popular-product">
+                                            <div class="sp-thumb">
+                                                <img src="{% static 'assets/images/home/p5.jpg' %}" alt="">
+                                            </div>
+                                            <div class="sp-details">
+                                                <h4>TV Monitor Screen</h4>
+                                                <div class="product-price clearfix">
+                                                    <span class="price">
+                                                        <span><span class="woocommerce-Price-currencySymbol">$</span>222.00</span>
+                                                    </span>         
+                                                </div>
+                                                <div class="sp-details-hover">
+                                                    <a class="sp-cart" href="#"><i class="twi-cart-plus"></i><span>Add to cart</span></a>
+                                                    <a class="sp-wishlist" href="#"><i class="twi-heart2"></i></a>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="tab-pane fade in" id="others" role="tabpanel">
+                                <div class="popular-tab-slider owl-carousel">
+                                    <div class="pp-single-slider">
+                                        <div class="single-popular-product">
+                                            <div class="sp-thumb">
+                                                <img src="{% static 'assets/images/home/p4.jpg' %}" alt="">
+                                                <div class="pro-badge">
+                                                    <p class="sale">Sale</p>
+                                                </div>
+                                            </div>
+                                            <div class="sp-details">
+                                                <h4>Gaming Headset</h4>
+                                                <div class="product-price clearfix">
+                                                    <span class="price">
+                                                        <del><span><span class="woocommerce-Price-currencySymbol">$</span>42.00</span></del>
+                                                        <ins><span><span class="woocommerce-Price-currencySymbol">$</span>38.00</span></ins>
+                                                    </span>         
+                                                </div>
+                                                <div class="sp-details-hover">
+                                                    <a class="sp-cart" href="#"><i class="twi-cart-plus"></i><span>Add to cart</span></a>
+                                                    <a class="sp-wishlist" href="#"><i class="twi-heart2"></i></a>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="single-popular-product">
+                                            <div class="sp-thumb">
+                                                <img src="{% static 'assets/images/home/p3.jpg' %}" alt="">
+                                                <div class="pro-badge">
+                                                    <p class="sale">Sale</p>
+                                                </div>
+                                            </div>
+                                            <div class="sp-details">
+                                                <h4>Camera Lens</h4>
+                                                <div class="product-price clearfix">
+                                                    <span class="price">
+                                                        <del><span><span class="woocommerce-Price-currencySymbol">$</span>52.00</span></del>
+                                                        <ins><span><span class="woocommerce-Price-currencySymbol">$</span>48.00</span></ins>
+                                                    </span>         
+                                                </div>
+                                                <div class="sp-details-hover">
+                                                    <a class="sp-cart" href="#"><i class="twi-cart-plus"></i><span>Add to cart</span></a>
+                                                    <a class="sp-wishlist" href="#"><i class="twi-heart2"></i></a>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="pp-single-slider">
+                                        <div class="single-popular-product">
+                                            <div class="sp-thumb">
+                                                <img src="{% static 'assets/images/home/p1.jpg' %}" alt="">
+                                                <div class="pro-badge">
+                                                    <p class="hot">Hot</p>
+                                                </div>
+                                            </div>
+                                            <div class="sp-details">
+                                                <h4>Novo Headset A30</h4>
+                                                <div class="product-price clearfix">
+                                                    <span class="price">
+                                                        <span><span class="woocommerce-Price-currencySymbol">$</span>122.00</span>
+                                                    </span>         
+                                                </div>
+                                                <div class="sp-details-hover">
+                                                    <a class="sp-cart" href="#"><i class="twi-cart-plus"></i><span>Add to cart</span></a>
+                                                    <a class="sp-wishlist" href="#"><i class="twi-heart2"></i></a>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="single-popular-product">
+                                            <div class="sp-thumb">
+                                                <img src="{% static 'assets/images/home/p2.jpg' %}" alt="">
+                                            </div>
+                                            <div class="sp-details">
+                                                <h4>TV Monitor Screen</h4>
+                                                <div class="product-price clearfix">
+                                                    <span class="price">
+                                                        <span><span class="woocommerce-Price-currencySymbol">$</span>222.00</span>
+                                                    </span>         
+                                                </div>
+                                                <div class="sp-details-hover">
+                                                    <a class="sp-cart" href="#"><i class="twi-cart-plus"></i><span>Add to cart</span></a>
+                                                    <a class="sp-wishlist" href="#"><i class="twi-heart2"></i></a>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="pp-single-slider">
+                                        <div class="single-popular-product">
+                                            <div class="sp-thumb">
+                                                <img src="{% static 'assets/images/home/p5.jpg' %}" alt="">
+                                                <div class="pro-badge">
+                                                    <p class="out-of-stock">Out of Stock</p>
+                                                </div>
+                                            </div>
+                                            <div class="sp-details">
+                                                <h4>Headset</h4>
+                                                <div class="product-price clearfix">
+                                                    <span class="price">
+                                                        <del><span><span class="woocommerce-Price-currencySymbol">$</span>32.00</span></del>
+                                                        <ins><span><span class="woocommerce-Price-currencySymbol">$</span>28.00</span></ins>
+                                                    </span>         
+                                                </div>
+                                                <div class="sp-details-hover">
+                                                    <a class="sp-cart" href="#"><i class="twi-cart-plus"></i><span>Add to cart</span></a>
+                                                    <a class="sp-wishlist" href="#"><i class="twi-heart2"></i></a>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="single-popular-product">
+                                            <div class="sp-thumb">
+                                                <img src="{% static 'assets/images/home/p6.jpg' %}" alt="">
+                                            </div>
+                                            <div class="sp-details">
+                                                <h4>Gaming Controller</h4>
+                                                <div class="product-price clearfix">
+                                                    <span class="price">
+                                                        <del><span><span class="woocommerce-Price-currencySymbol">$</span>42.00</span></del>
+                                                        <ins><span><span class="woocommerce-Price-currencySymbol">$</span>38.00</span></ins>
+                                                    </span>         
+                                                </div>
+                                                <div class="sp-details-hover">
+                                                    <a class="sp-cart" href="#"><i class="twi-cart-plus"></i><span>Add to cart</span></a>
+                                                    <a class="sp-wishlist" href="#"><i class="twi-heart2"></i></a>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="pp-single-slider">
+                                        <div class="single-popular-product">
+                                            <div class="sp-thumb">
+                                                <img src="{% static 'assets/images/home/p6.jpg' %}" alt="">
+                                                <div class="pro-badge">
+                                                    <p class="out-of-stock">Out of Stock</p>
+                                                </div>
+                                            </div>
+                                            <div class="sp-details">
+                                                <h4>Headset</h4>
+                                                <div class="product-price clearfix">
+                                                    <span class="price">
+                                                        <del><span><span class="woocommerce-Price-currencySymbol">$</span>32.00</span></del>
+                                                        <ins><span><span class="woocommerce-Price-currencySymbol">$</span>28.00</span></ins>
+                                                    </span>         
+                                                </div>
+                                                <div class="sp-details-hover">
+                                                    <a class="sp-cart" href="#"><i class="twi-cart-plus"></i><span>Add to cart</span></a>
+                                                    <a class="sp-wishlist" href="#"><i class="twi-heart2"></i></a>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="single-popular-product">
+                                            <div class="sp-thumb">
+                                                <img src="{% static 'assets/images/home/p3.jpg' %}" alt="">
+                                            </div>
+                                            <div class="sp-details">
+                                                <h4>Gaming Controller</h4>
+                                                <div class="product-price clearfix">
+                                                    <span class="price">
+                                                        <del><span><span class="woocommerce-Price-currencySymbol">$</span>42.00</span></del>
+                                                        <ins><span><span class="woocommerce-Price-currencySymbol">$</span>38.00</span></ins>
+                                                    </span>         
+                                                </div>
+                                                <div class="sp-details-hover">
+                                                    <a class="sp-cart" href="#"><i class="twi-cart-plus"></i><span>Add to cart</span></a>
+                                                    <a class="sp-wishlist" href="#"><i class="twi-heart2"></i></a>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="pp-single-slider">
+                                        <div class="single-popular-product">
+                                            <div class="sp-thumb">
+                                                <img src="{% static 'assets/images/home/p1.jpg' %}" alt="">
+                                                <div class="pro-badge">
+                                                    <p class="sale">Sale</p>
+                                                </div>
+                                            </div>
+                                            <div class="sp-details">
+                                                <h4>Gaming Headset</h4>
+                                                <div class="product-price clearfix">
+                                                    <span class="price">
+                                                        <del><span><span class="woocommerce-Price-currencySymbol">$</span>42.00</span></del>
+                                                        <ins><span><span class="woocommerce-Price-currencySymbol">$</span>38.00</span></ins>
+                                                    </span>         
+                                                </div>
+                                                <div class="sp-details-hover">
+                                                    <a class="sp-cart" href="#"><i class="twi-cart-plus"></i><span>Add to cart</span></a>
+                                                    <a class="sp-wishlist" href="#"><i class="twi-heart2"></i></a>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="single-popular-product">
+                                            <div class="sp-thumb">
+                                                <img src="{% static 'assets/images/home/p4.jpg' %}" alt="">
+                                                <div class="pro-badge">
+                                                    <p class="sale">Sale</p>
+                                                </div>
+                                            </div>
+                                            <div class="sp-details">
+                                                <h4>Camera Lens</h4>
+                                                <div class="product-price clearfix">
+                                                    <span class="price">
+                                                        <del><span><span class="woocommerce-Price-currencySymbol">$</span>52.00</span></del>
+                                                        <ins><span><span class="woocommerce-Price-currencySymbol">$</span>48.00</span></ins>
+                                                    </span>         
+                                                </div>
+                                                <div class="sp-details-hover">
+                                                    <a class="sp-cart" href="#"><i class="twi-cart-plus"></i><span>Add to cart</span></a>
+                                                    <a class="sp-wishlist" href="#"><i class="twi-heart2"></i></a>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="pp-single-slider">
+                                        <div class="single-popular-product">
+                                            <div class="sp-thumb">
+                                                <img src="{% static 'assets/images/home/p2.jpg' %}" alt="">
+                                                <div class="pro-badge">
+                                                    <p class="hot">Hot</p>
+                                                </div>
+                                            </div>
+                                            <div class="sp-details">
+                                                <h4>Novo Headset A30</h4>
+                                                <div class="product-price clearfix">
+                                                    <span class="price">
+                                                        <span><span class="woocommerce-Price-currencySymbol">$</span>122.00</span>
+                                                    </span>         
+                                                </div>
+                                                <div class="sp-details-hover">
+                                                    <a class="sp-cart" href="#"><i class="twi-cart-plus"></i><span>Add to cart</span></a>
+                                                    <a class="sp-wishlist" href="#"><i class="twi-heart2"></i></a>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="single-popular-product">
+                                            <div class="sp-thumb">
+                                                <img src="{% static 'assets/images/home/p5.jpg' %}" alt="">
+                                            </div>
+                                            <div class="sp-details">
+                                                <h4>TV Monitor Screen</h4>
+                                                <div class="product-price clearfix">
+                                                    <span class="price">
+                                                        <span><span class="woocommerce-Price-currencySymbol">$</span>222.00</span>
+                                                    </span>         
+                                                </div>
+                                                <div class="sp-details-hover">
+                                                    <a class="sp-cart" href="#"><i class="twi-cart-plus"></i><span>Add to cart</span></a>
+                                                    <a class="sp-wishlist" href="#"><i class="twi-heart2"></i></a>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <!-- Popular Section End -->
+
+        <!-- Coupon Discount Start -->
+        <section class="coupone-discount-sec" id="coupone">
+
+            <!-- Section Heading -->
+            <div class="sec-heading rotate-tb">Coupon <span>Deals</span></div>
+            <!-- Section Heading -->
+
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-6 col-md-5">
+                        <div class="dis-product-detail">
+                            <h4>Weekly Deal</h4>
+                            <div class="product-price clearfix">
+                                <span class="price">
+                                    <span><span class="woocommerce-Price-currencySymbol">$</span>179.00</span>
+                                </span>           
+                            </div>
+                            <div id="countdown-coupone" class="clearfix" data-day="01" data-month="10" data-year="2020"></div>
+                            <a class="goru-btn" href="single-product.html">Shop Now</a>
+                        </div>
+                    </div>
+                    <div class="col-lg-6 col-md-7">
+                        <div class="dis-pro-thumb">
+                            <img src="{% static 'assets/images/home/1.jpg' %}" alt="">
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- shape -->
+            <div class="couple-shape"><img src="{% static 'assets/images/home/shape3.png' %}" alt=""></div>
+        </section>
+        <!-- Coupon Discount End -->
+
+        <!-- Client Section Start -->
+        <section class="client-section">
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-12">
+                        <div class="client-logo owl-carousel">
+                            <a href="#"><img src="{% static 'assets/images/home/client-logo/1.png' %}" alt=""></a>
+                            <a href="#"><img src="{% static 'assets/images/home/client-logo/2.png' %}" alt=""></a>
+                            <a href="#"><img src="{% static 'assets/images/home/client-logo/3.png' %}" alt=""></a>
+                            <a href="#"><img src="{% static 'assets/images/home/client-logo/4.png' %}" alt=""></a>
+                            <a href="#"><img src="{% static 'assets/images/home/client-logo/5.png' %}" alt=""></a>
+                            <a href="#"><img src="{% static 'assets/images/home/client-logo/1.png' %}" alt=""></a>
+                            <a href="#"><img src="{% static 'assets/images/home/client-logo/2.png' %}" alt=""></a>
+                            <a href="#"><img src="{% static 'assets/images/home/client-logo/3.png' %}" alt=""></a>
+                            <a href="#"><img src="{% static 'assets/images/home/client-logo/4.png' %}" alt=""></a>
+                            <a href="#"><img src="{% static 'assets/images/home/client-logo/5.png' %}" alt=""></a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <!-- Client Section End -->
+
+        <!-- Mailchimp Section Start -->
+        <section class="mailchimp-section">
+
+            <!-- Section Heading -->
+            <div class="sec-heading rotate-rl">Newsletter <span>Sign-Up</span></div>
+            <!-- Section Heading -->
+
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-8 text-center mx-auto">
+                        <h3 class="sec-title">Get Discount 30% Off</h3>
+                        <form class="mailchimp-form" action="#" method="post">
+                            <input type="email" name="email" placeholder="your email">
+                            <button type="submit">Subscribe</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+
+            <!-- shape -->
+            <div class="mailchimp-shape"><img src="{% static 'assets/images/home/shape4.png' %}" alt=""></div>
+        </section>
+        <!-- Mailchimp Section End -->
+
+        <!-- Footer Start -->
+        <footer class="footer-01">
+            <div class="container-fluid">
+                <div class="row">
+                    <div class="col-lg-3 col-md-4">
+                        <aside class="widget about-widget">
+                            <div class="foo-logo">
+                                <a href="index.html"><img src="{% static 'assets/images/logo.png' %}" alt=""/></a>
+                            </div>
+                            <p>
+                                Sed ut perspiciatis unde omnis iste natus er sit voluptatem accusantium dolore.ea commo
+                                do consequat. Duis aute irure dolor in re
+                                prehenderit in. 
+                            </p>
+                            <div class="ab-social">
+                                <a href="#"><i class="twi-facebook"></i></a>
+                                <a href="#"><i class="twi-twitter"></i></a>
+                                <a href="#"><i class="twi-instagram"></i></a>
+                                <a href="#"><i class="twi-linkedin"></i></a>
+                            </div>
+                        </aside>
+                    </div>
+                    <div class="col-lg-2 col-md-4 col-custome-1">
+                        <aside class="widget">
+                            <h3 class="widget-title">Useful Links</h3>
+                            <ul>
+                                <li><a href="#">Privacy Policy</a></li>
+                                <li><a href="#">Return Policy</a></li>
+                                <li><a href="#">Blog</a></li>
+                                <li><a href="#">Contact</a></li>
+                                <li><a href="#">Terms & Conditions</a></li>
+                            </ul>
+                        </aside>
+                    </div>
+                    <div class="col-lg-2 col-md-4 col-custome-2">
+                        <aside class="widget">
+                            <h3 class="widget-title">Account</h3>
+                            <ul>
+                                <li><a href="#">My Account</a></li>
+                                <li><a href="#">Log in</a></li>
+                                <li><a href="#">Sign Up</a></li>
+                                <li><a href="#">Purchases</a></li>
+                                <li><a href="#">Shipping Address</a></li>
+                            </ul>
+                        </aside>
+                    </div>
+                    <div class="col-lg-2 col-md-6 col-custome-3">
+                        <aside class="widget contact-widget">
+                            <h3 class="widget-title">Contact & Address</h3>
+                            <p>
+                                123 Street, Gandy Street, Syracuse
+                                New York - 13221.
+                            </p>
+                            <p>
+                                Phone: +1 315-234-3812
+                                Email: info@goru.com
+                            </p>
+                        </aside>
+                    </div>
+                    <div class="col-lg-3 col-md-6 col-custome-4">
+                        <aside class="widget">
+                            <h3 class="widget-title">Subscribe</h3>
+                            <form class="subscribe-form" action="#" method="post">
+                                <input type="email" name="email" placeholder="admin@mail.com">
+                                <button type="submit">Subscribe<i class="twi-long-arrow-alt-right"></i></button>
+                            </form>
+                        </aside>
+                    </div>
+                </div>
+            </div>
+        </footer>
+        <!-- Footer Ened -->
+
+        <!-- Coryight Start -->
+        <section class="copyright-section">
+            <div class="container-fluid">
+                <div class="row">
+                    <div class="col-lg-6 col-md-5">
+                        <ul class="menu-link">
+                           <li><a href="#">Privacy Policy</a></li> | 
+                           <li><a href="#">Terms of Service</a></li>
+                        </ul>
+                    </div>
+                    <div class="col-lg-6 col-md-7">
+                        <div class="copys-text"><i class="twi-copyright"></i>Copyright WpSmasher 2020 | All Rights Reserved</div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <!-- Coryight End -->
+
+        <!-- Back To Top -->
+        <a href="#" id="backtotop"><i class="twi-angle-double-up2"></i></a>
+
+        <!-- Include All JS -->
+        <script src="{% static 'assets/js/jquery.js' %}"></script>
+        <script src="{% static 'assets/js/bootstrap.min.js' %}"></script>
+        <script src="{% static 'assets/js/modernizr.custom.js' %}"></script>
+        <script src="{% static 'assets/js/jquery.appear.js' %}"></script>
+        <script src="{% static 'assets/js/jquery-ui.js' %}"></script>
+        <script src="{% static 'assets/js/owl.carousel.min.js' %}"></script>
+        <script src="{% static 'assets/js/jquery.shuffle.min.js' %}"></script>
+        <script src="{% static 'assets/js/lightcase.js' %}"></script>
+        <script src="{% static 'assets/js/jquery.easing.1.3.js' %}"></script>
+        <script src="{% static 'assets/js/jquery.plugin.min.js' %}"></script>
+        <script src="{% static 'assets/js/jquery.countdown.min.js' %}"></script>
+        <script src="{% static 'assets/js/tweenmax.min.js' %}"></script>
+
+        <script src="{% static 'assets/js/jquery.themepunch.tools.min.js' %}"></script>
+        <script src="{% static 'assets/js/jquery.themepunch.revolution.min.js' %}"></script>
+
+        <!-- Rev slider Add on Start -->
+        <script src="{% static 'assets/js/extensions/revolution.extension.actions.min.js' %}"></script>
+        <script src="{% static 'assets/js/extensions/revolution.extension.carousel.min.js' %}"></script>
+        <script src="{% static 'assets/js/extensions/revolution.extension.kenburn.min.js' %}"></script>
+        <script src="{% static 'assets/js/extensions/revolution.extension.layeranimation.min.js' %}"></script>
+        <script src="{% static 'assets/js/extensions/revolution.extension.migration.min.js' %}"></script>
+        <script src="{% static 'assets/js/extensions/revolution.extension.navigation.min.js' %}"></script>
+        <script src="{% static 'assets/js/extensions/revolution.extension.parallax.min.js' %}"></script>
+        <script src="{% static 'assets/js/extensions/revolution.extension.slideanims.min.js' %}"></script>
+        <script src="{% static 'assets/js/extensions/revolution.extension.video.min.js' %}"></script>
+        <!-- Rev slider Add on End -->
+
+        <script src="{% static 'assets/js/theme.js' %}"></script>
+    </body>
+</html>

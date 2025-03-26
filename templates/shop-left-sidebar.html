@@ -1,0 +1,133 @@
+{% extends 'base.html' %}
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    {% block content %}
+        <!-- Banner Start -->
+        <section class="page-banner">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-12">
+                        <span class="round-shape"></span>
+                        <h2 class="banner-title">Shop</h2>
+                        <div class="bread-crumb"><a href="{% url 'home' %}">Home</a> / shop</div>
+                        <div class="banner-img">
+                            <img src="{% static 'assets/images/shop/banner2.png' %}" alt="">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>    
+        <!-- Banner End -->
+
+        <!-- Shop Section Start -->
+        <section class="shop-left-sidebar">
+            <div class="container-fluid">
+                <div class="row">
+                    <div class="col-lg-2">
+                        <div class="shop-sidebar">
+                            <aside class="widget widget-categories">
+                                <h3 class="widget-title">Categories</h3>
+                                <ul>
+                                    {% for category in categories %}
+                                        {% if filter|default:'' == category.id %}
+                                            <li><a href="{% url 'shop' %}?category={{category.id}}" class="selected">{{category.name}}</a></li>
+                                        {% else %}
+                                            <li><a href="{% url 'shop' %}?category={{category.id}}">{{category.name}}</a></li>
+                                        {% endif %}
+                                    {% endfor %}
+                                    <li><a href="{% url 'shop' %}">Clear Filters</a></li>
+                                </ul>
+                            </aside>
+                            <aside class="widget">
+                                <h3 class="widget-title">Price</h3>
+                                <div class="price_slider_wrapper">
+                                    <form action="shop" method="get" class="clearfix">
+                                        {% csrf_token %}
+                                        <div id="slider-range"></div>
+                                    </form>
+                                </div>
+                            </aside>
+                        </div>
+                    </div>
+                    <div class="col-lg-10">
+                        <div class="row">
+                            <div class="col-md-7">
+                                <div class="results">
+                                    Showing 9 / 35 results
+                                </div>
+                            </div>
+                            <div class="col-md-5">
+                                <div class="sort-view">
+                                    <div class="sorts">
+                                        <select name="sort">
+                                            <option value="">Default Sorting</option>
+                                            <option selected="selected" value="">low to high</option>
+                                            <option value="">high to low</option>
+                                            <option value="">Best Seller</option>
+                                            <option value="">Popular Products</option>
+                                        </select>
+                                        <i class="twi-angle-down1"></i>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            {% for item in items %}
+                            <a href="{% url 'product' item.id %}">
+                                <div class="col-lg-4 col-md-6">
+                                    <div class="single-shop-product">
+                                        <div class="sp-thumb">
+                                            <img src="{{item.img.url}}" alt="" class="">
+                                            <div class="pro-badge">
+                                                <p class="sale">Sale</p>
+                                            </div>
+                                        </div>
+                                        <div class="sp-details">
+                                            <h4>{{item.name}}</h4>
+                                            <div class="product-price clearfix">
+                                                <span class="price">
+                                                    <ins><span><span class="woocommerce-Price-currencySymbol">₹</span>{{item.price}}</span></ins>
+                                                </span>         
+                                            </div>
+                                            <div class="sp-details-hover">
+                                                <a class="sp-cart" href="{% url 'add_to_cart' %}?action=add-cart&next={{request.path}}&product_id={{item.id}}&qty=1"><i class="twi-cart-plus"></i><span>Add to cart</span></a>
+                                                <a class="sp-wishlist" href="{% url 'add_to_wishlist' item.id %}?action=add-wishlist&next={{request.path}}"><i class="twi-heart2"></i></a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </a>
+                            {% endfor %}
+                        </div>
+                        <div class="row">
+                            <div class="col-lg-10 offset-lg-1 col-md-12 mt-20">
+                                <div class="goru-pagination text-center clearfix">
+                                    <a class="prev" href="#"><i class="twi-long-arrow-alt-left"></i></a>
+                                    <span class="current">1</span>
+                                    <a href="#">2</a>
+                                    <a href="#">3</a>
+                                    <a href="#">4</a>
+                                    <a href="#">5</a>
+                                    <a class="next" href="#"><i class="twi-long-arrow-alt-right"></i></a>
+                                </div>
+                            </div>
+                        </div> 
+                    </div>
+                </div>
+            </div>
+        </section>
+        <!-- Shop Section End -->
+    {% endblock %}
+
+</body>
+
+</html>
