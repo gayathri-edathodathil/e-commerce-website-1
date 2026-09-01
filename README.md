@@ -1,6 +1,6 @@
 # Goru E-Commerce Application
 
-An extended e-commerce platform built with **Django**, **PostgreSQL**, and **Django REST Framework (DRF)**. The project features a complete shopping flow—from product browsing and cart management to order processing, inventory tracking, order history, and an administrative order management dashboard—along with a RESTful API.
+An e-commerce platform built with **Django**, **PostgreSQL**, and **Django REST Framework (DRF)**. The project features a complete shopping flow—from product browsing and cart management to order processing, inventory tracking, order history, and an administrative order management dashboard—along with a RESTful API.
 
 ---
 
