@@ -1,0 +1,85 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+<section class="page-banner">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12">
+                <h2 class="banner-title">Order Confirmation</h2>
+                <div class="bread-crumb"><a href="{% url 'home' %}">Home</a> / Order Confirmation</div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="checkout-section py-5">
+    <div class="container">
+        <div class="card p-4 shadow-sm text-center mb-4">
+            <div class="my-3">
+                <i class="twi-check-circle text-success" style="font-size: 64px;"></i>
+            </div>
+            <h2 class="text-success">Thank You for Your Order!</h2>
+            <p class="lead">Your order <strong>#{{ order.order_number }}</strong> has been placed successfully.</p>
+            <p class="text-muted">A confirmation email will be sent to <strong>{{ order.email }}</strong>.</p>
+            
+            <div class="mt-3">
+                <span class="badge badge-success p-2 font-weight-bold" style="font-size: 16px;">Status: {{ order.status }}</span>
+                <span class="badge badge-info p-2 font-weight-bold ml-2" style="font-size: 16px;">Payment: {{ order.payment_status }}</span>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-md-6 mb-4">
+                <div class="card p-4 h-100 shadow-sm">
+                    <h4>Shipping & Contact Details</h4>
+                    <hr>
+                    <p><strong>Name:</strong> {{ order.full_name }}</p>
+                    <p><strong>Email:</strong> {{ order.email }}</p>
+                    <p><strong>Phone:</strong> {{ order.phone }}</p>
+                    <p><strong>Address:</strong> {{ order.address }}, {{ order.city }}, {{ order.postal_code }}, {{ order.country }}</p>
+                    {% if order.order_note %}
+                    <p><strong>Order Note:</strong> {{ order.order_note }}</p>
+                    {% endif %}
+                </div>
+            </div>
+            
+            <div class="col-md-6 mb-4">
+                <div class="card p-4 h-100 shadow-sm">
+                    <h4>Order Summary</h4>
+                    <hr>
+                    <table class="table table-borderless">
+                        <thead>
+                            <tr>
+                                <th>Item</th>
+                                <th>Qty</th>
+                                <th class="text-right">Price</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            {% for item in order.items.all %}
+                            <tr>
+                                <td>{{ item.product_name }}</td>
+                                <td>{{ item.quantity }}</td>
+                                <td class="text-right">₹{{ item.price }}</td>
+                            </tr>
+                            {% endfor %}
+                        </tbody>
+                        <tfoot>
+                            <tr class="border-top">
+                                <th colspan="2">Total Amount</th>
+                                <th class="text-right text-success">₹{{ order.total_price }}</th>
+                            </tr>
+                        </tfoot>
+                    </table>
+                </div>
+            </div>
+        </div>
+
+        <div class="text-center mt-4">
+            <a href="{% url 'order_history' %}" class="goru-btn mr-3">View Order History</a>
+            <a href="{% url 'shop' %}" class="goru-btn">Continue Shopping</a>
+        </div>
+    </div>
+</section>
+{% endblock %}

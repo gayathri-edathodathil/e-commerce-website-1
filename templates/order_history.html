@@ -1,0 +1,76 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+<section class="page-banner">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12">
+                <h2 class="banner-title">My Orders</h2>
+                <div class="bread-crumb"><a href="{% url 'home' %}">Home</a> / Orders</div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="cart-section py-5">
+    <div class="container">
+        {% if messages %}
+            {% for message in messages %}
+                <div class="alert alert-{{ message.tags|default:'info' }} text-center" role="alert">
+                    {{ message }}
+                </div>
+            {% endfor %}
+        {% endif %}
+
+        {% if orders %}
+            <div class="table-responsive shadow-sm rounded p-3 bg-white">
+                <table class="table table-hover align-middle">
+                    <thead class="thead-light">
+                        <tr>
+                            <th>Order #</th>
+                            <th>Date</th>
+                            <th>Items</th>
+                            <th>Total Amount</th>
+                            <th>Status</th>
+                            <th>Action</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {% for order in orders %}
+                        <tr>
+                            <td class="font-weight-bold">#{{ order.order_number }}</td>
+                            <td>{{ order.created_at|date:"M d, Y H:i" }}</td>
+                            <td>{{ order.items.count }} item(s)</td>
+                            <td class="text-success font-weight-bold">₹{{ order.total_price }}</td>
+                            <td>
+                                {% if order.status == 'Confirmed' %}
+                                    <span class="badge badge-success p-2">{{ order.status }}</span>
+                                {% elif order.status == 'Shipped' %}
+                                    <span class="badge badge-primary p-2">{{ order.status }}</span>
+                                {% elif order.status == 'Delivered' %}
+                                    <span class="badge badge-info p-2">{{ order.status }}</span>
+                                {% elif order.status == 'Cancelled' %}
+                                    <span class="badge badge-danger p-2">{{ order.status }}</span>
+                                {% else %}
+                                    <span class="badge badge-warning p-2">{{ order.status }}</span>
+                                {% endif %}
+                            </td>
+                            <td>
+                                <a href="{% url 'order_detail' order.order_number %}" class="btn btn-sm btn-outline-primary">View Details</a>
+                            </td>
+                        </tr>
+                        {% endfor %}
+                    </tbody>
+                </table>
+            </div>
+        {% else %}
+            <div class="text-center py-5 shadow-sm bg-white rounded">
+                <h3>No orders placed yet.</h3>
+                <p class="text-muted mb-4">Start browsing our catalog to place your first order!</p>
+                <a href="{% url 'shop' %}" class="goru-btn">Start Shopping</a>
+            </div>
+        {% endif %}
+    </div>
+</section>
+{% endblock %}
