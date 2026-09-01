@@ -58,7 +58,7 @@ def cart(request):
             grandTotal+=i.product.price*i.quantity
         return render(request,'cart.html',{'items':cart_items,'grandtotal':grandTotal})
     else:
-        messages.info("Login to buy")
+        messages.info(request,"Login to buy")
         return redirect('login')
     
 def login(request):
@@ -223,4 +223,4 @@ def order_detail(request, order_number):
     if not request.user.is_authenticated:
         return redirect('login')
     order = get_object_or_404(Order, order_number=order_number, user=request.user)
-    return render(request, 'order_detail.html', {'order': order})
+    return render(request, 'order_detail.html', {'order': order})
